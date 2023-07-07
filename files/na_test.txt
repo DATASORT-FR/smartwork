@@ -1,0 +1,5 @@
+lastname(string,text,0,0,0,0,0,0,,,);login(string,text,0,0,0,0,0,0,,,);firstname(string,text,0,0,0,0,0,0,,,);email(string,text,0,0,0,0,0,0,,,);status_id(boolean,choice,0,0,0,0,0,0,,,);case1(boolean,checkbox,0,0,0,0,0,0,,,);case2(boolean,checkbox,0,0,0,0,0,0,,,);partner_list(array,listmultiple,0,0,0,0,0,0,,,);group_list(array,listmultiple_order,0,0,0,0,0,0,,,);datagrid(array,datagrid,0,0,0,0,0,0,,,);password(string,text,0,0,0,0,0,0,,,)
+dfg;dgdf;dgdf;dgdfg;0;;;{2};{18|4|36|29};{}
+sfsf;sfsdf;sdfsd;sdfds;0;1;;{};{18|4|35|1|6};{}
+dfgdfgfd;dfgdg;dfgdfg;d;0;;1;{1};{18};{}
+555dfgdfg;ykyky;dfgdf;dfgdfg;0;;1;{2};{1};{}

@@ -1,0 +1,7 @@
+2022-12-20 12:30:09|[INFO]|Session : [o4b04n7v1ntdf08nl1tlujidcl]|User id : 1|Name : |Module : [use_workspace]|Function : [getCookie - logTrace]| [cookie : _ga; value : GA1.1.1991355516.1670674063] 
+2022-12-20 22:50:51|[ERROR]|Session : [8e5oe0snrb4f611oucalfk7p6i]|User id : 1|Name : |Module : [use_connect]|Function : [connect - require_once]| [KO_100] Informations de connexion incorrectes. Vous pouvez réessayer.
+2022-12-20 22:52:05|[ERROR]|Session : [8e5oe0snrb4f611oucalfk7p6i]|User id : 1|Name : |Module : [use_connect]|Function : [connect - require_once]| [KO_100] Informations de connexion incorrectes. Vous pouvez réessayer.
+2022-12-20 22:58:14|[ERROR]|Session : [8e5oe0snrb4f611oucalfk7p6i]|User id : 1|Name : |Module : [use_connect]|Function : [connect - require_once]| [KO_100] Informations de connexion incorrectes. Vous pouvez réessayer.
+2022-12-20 23:07:35|[ERROR]|Session : [8e5oe0snrb4f611oucalfk7p6i]|User id : 1|Name : |Module : [use_connect]|Function : [connect - require_once]| [KO_100] Informations de connexion incorrectes. Vous pouvez réessayer.
+2022-12-20 23:13:21|[ERROR]|Session : [8e5oe0snrb4f611oucalfk7p6i]|User id : 1|Name : |Module : [use_connect]|Function : [connect - require_once]| [KO_100] Informations de connexion incorrectes. Vous pouvez réessayer.
+2022-12-20 23:14:57|[ERROR]|Session : [8e5oe0snrb4f611oucalfk7p6i]|User id : 1|Name : |Module : [use_connect]|Function : [connect - require_once]| [KO_100] Informations de connexion incorrectes. Vous pouvez réessayer.

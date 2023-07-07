@@ -1,0 +1,46 @@
+.img_container .fa {
+	margin: 0;
+}
+
+.img_container .img_container_preview {
+	text-align: center;
+}
+
+.img_container .img_container_preview>div {
+}
+
+.img_container .img_container_preview>img {
+	width:100%;
+	display: inline-block;
+	padding: 0.2rem;
+	padding-bottom: 0.5rem;
+	border: 0.1rem solid;
+	border-color: lightgrey;
+	margin-bottom: 0.5rem;
+}
+
+.img_container .img_container_img,
+.img_container .img_container_alt {
+	margin-bottom: 0.3rem;
+}
+
+.img_container .img_container_title label,
+.img_container .img_container_alt label {
+	margin-left:0;
+	margin-right:0;
+}
+
+.img_container .img_container_img .img_input_img {
+	width: 70%;	
+}
+
+.img_container .img_container_img button {
+	width: 15%;	
+	max-width:3rem;
+	padding: 0.5rem 0.3rem;
+}
+
+.img_container .img_container_alt .img_input_alt,
+.img_container .img_container_title .img_input_title {
+	width: 100%;
+}

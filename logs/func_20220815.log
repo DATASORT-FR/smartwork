@@ -1,0 +1,7 @@
+2022-08-15 12:53:03|[INFO]|Session : [18ugin8shrvflhtm6qldgcvi9p]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - insert]| [OK_111] object_group - 'GUEST' a été créé.
+2022-08-15 12:53:24|[INFO]|Session : [18ugin8shrvflhtm6qldgcvi9p]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - update]| [OK_112] object_group - 'GUEST' a été modifié.
+2022-08-15 12:53:37|[INFO]|Session : [18ugin8shrvflhtm6qldgcvi9p]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - insert]| [OK_111] object_group_right - '' a été créé.
+2022-08-15 12:53:43|[INFO]|Session : [18ugin8shrvflhtm6qldgcvi9p]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - delete]| [OK_110] object_group_right - '134' a été supprimé.
+2022-08-15 12:53:50|[INFO]|Session : [18ugin8shrvflhtm6qldgcvi9p]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - insert]| [OK_111] object_group_right - '' a été créé.
+2022-08-15 12:54:39|[INFO]|Session : [18ugin8shrvflhtm6qldgcvi9p]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - insert]| [OK_111] object_group - 'USER' a été créé.
+2022-08-15 12:54:49|[INFO]|Session : [18ugin8shrvflhtm6qldgcvi9p]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - insert]| [OK_111] object_group_right - '' a été créé.

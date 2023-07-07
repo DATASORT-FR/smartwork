@@ -1,0 +1,20 @@
+<?php
+/**
+* This file contains template initialization code
+*
+* @package    global CRM
+* @subpackage initialization
+* @version    1.0
+* @date       25 September 2016
+* @author     Alain VANDEPUTTE
+* @copyright  datasort.fr
+*/
+
+defined('_WSEXEC') or die();
+
+header( 'content-type: text/html; charset=utf-8' );
+$wlogin = new wlogin();
+$wmenu = new wmenu();
+
+$ws->assign('IncConnect',$wlogin->displayConnect());
+$ws->assign('IncNav',$wmenu->display($ws->paramGet('APP_CODE'),'MAINMENU', 'main'));

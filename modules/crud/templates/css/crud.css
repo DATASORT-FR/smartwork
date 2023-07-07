@@ -1,0 +1,125 @@
+/**
+* Crud module : css
+*
+* @package    module_crud
+* @subpackage controller
+* @version    1.1
+* @date       30 Août 2016
+* @author     Alain VANDEPUTTE
+* @copyright  datasort.fr
+*/
+
+
+/*   Form flex  */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+.form-row .form-label {
+    background-color: transparent;
+	align-self: center;
+    width: 80%;
+    margin: auto;
+    font-weight: 500;
+}
+
+.form-row .form-input {
+    width: 80%;
+    margin: auto;
+}
+.form-row .form-input.readonly,
+.form-row .form-input.readonly:focus,
+.form-row .form-input.readonly:active {
+    border: none;
+	outline: none;
+	cursor: default;
+}
+
+@media (min-width: 768px) {
+	.form-row {
+		margin-bottom: 1rem;
+	}
+	.form-row .form-label {
+		width: 40%;
+		margin: 0;
+	}	
+	.form-row .form-input {
+		width: 50%;
+		margin: 0;
+		max-width: 20rem;
+	}	
+}
+
+@media (min-width: 1024px) {
+	.form-row .form-label {
+		width: 30%;
+	}
+	.form-row .form-input {
+		width: 50%;
+	}	
+}
+
+/* form Crud */
+.crud .form-control {
+	width: auto;
+	max-width: 100%;
+}
+
+.crud .form-control.check-container[readonly] {
+	display: inline;
+}
+
+.crud {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.crud .form-check-label {
+	padding-top: calc(.5rem - 1px * 2);
+	padding-bottom: calc(.5rem - 1px * 2);
+}
+
+.crud select {
+	overflow: auto;
+}
+
+.crud .div-control {
+	float: left;
+	margin-right: 0.3rem;
+	text-align:center;
+    max-width: 100%;
+}
+
+.crud .col-label {
+	display:inline-block;
+}
+
+.crud .col-form-label {
+	min-height:1.7rem;
+}
+
+.crud .form-check-inline {
+	padding-left: 0;
+	margin-left: .5rem;
+}
+
+.crud [class*="display-none-"] {
+	display: none;
+}
+
+.crud input[readonly],
+.crud select[readonly] {
+  pointer-events: none;
+}
+
+.crud .form-row .form-label,
+.crud .form-row .form-input {
+	width: auto;
+	align-self: stretch;
+}
+
+.crud .form-row .form-label {
+	margin-top: 0.5rem;
+}

@@ -1,0 +1,369 @@
+
+/* Diagram params */
+@nodeDocBgColor : #eaeaea;
+@nodeDocBorderColor : #cccccc;
+
+@nodeBorderColor : #fd7e0c;
+@nodeSelectedColor : #7F7F7F;
+@nodeHeaderBgColor : #fd7e0c;
+@nodeHeaderColor : white;
+@nodeBodyBgColor : white;
+@nodeBodyColor : black;
+@nodeBtBgColor : #fd7e0c;
+@nodeBtColor : white;
+
+@nodeOverBorderColor : #eb0006;
+@nodeOverHeaderBgColor : #eb0006;
+@nodeOverHeaderColor : white;
+@nodeOverBodyBgColor : #fafafa;
+@nodeOverBodyColor : black;
+@nodeOverBtBgColor : #eb0006;
+@nodeOverBtColor : white;
+
+@nodeBtInfoBgColor : #3399cc;
+@nodeBtChooseBgColor : #669933;
+
+@contentColor : #16212c;
+@contentFont : @MainFont;
+@contentFontSize : 1rem;
+@contentFontWeight : 400;
+@contentLineHeight : 100%;
+
+@nodeLinkColor : #7f7f7f;
+@nodeOverLinkColor:#eb0006;
+
+/*****************************/
+/*    Specifics blocks       */
+/*****************************/
+.block-diagram {
+/*
+	border: solid @boxBorderSize;
+    border-color: @boxBorderColor;
+*/
+	>.page-header {
+		background-color: @boxHeaderBgColor;
+	}
+	
+	h1 {
+		color: @boxHeaderColor;
+		font-size: @boxHeaderFontSize;
+		line-height: 2rem;
+		overflow: hidden;
+		margin-top: 0.3rem;
+		margin-bottom: 0.3rem;
+	}
+
+	hr {
+		margin-top: 1rem;
+		margin-bottom: 0.5rem;
+	}
+	
+}
+
+.extra-box .bt-minus {
+	display: none;
+}
+
+/*****************************/
+/*      diagram design       */
+/*****************************/
+.design {
+}
+
+.node-doc {
+	background-color : @nodeDocBgColor;
+	stroke: @nodeDocBorderColor;
+	stroke-width: 0.75px;
+	perspective-origin: 0% 0%;
+	width: 100%;
+	
+	.node:hover {
+		transform: translateZ(20px);
+	}
+	.node:hover>.bgcolor {
+		fill: @nodeOverBodyBgColor;
+		stroke: @nodeOverBorderColor;
+		filter:url(#shadow);
+	}
+	.node:hover>.background {
+		fill: transparent;
+		stroke: @nodeOverBorderColor;
+	}
+	.node:hover>.header>rect {
+		fill : @nodeOverHeaderBgColor;
+	}
+	.node:hover>.header text {
+		fill: @nodeOverHeaderColor;
+	}
+	.node:hover>.body>rect {
+		fill : @nodeOverBodyBgColor;
+	}
+	.node:hover>.body text {
+		fill: @nodeOverBodyColor;
+	}
+	.node:hover .button>.background {
+		fill: @nodeOverBtBgColor;
+	}
+	.node:hover .button>path {
+		stroke: @nodeOverBtColor;
+	}
+	.node:hover>.tie circle {
+		fill: @nodeOverBorderColor;
+	}
+	.node .button:hover>.background {
+		stroke: @nodeOverBtBorderColor;
+		filter:url(#shadow);
+	}
+	.node {
+		z-index: 4;
+	}
+	.node>.bgcolor {
+		fill: @nodeBodyBgColor;
+		stroke: @nodeBorderColor;
+		stroke-width: 2px;
+	}
+	.node>.bgcolor.selected {
+		stroke: @nodeSelectedColor;
+	}
+	.node:hover>.bgcolor.selected {
+		stroke: @nodeSelectedColor;
+	}
+	.node>.background {
+		fill: transparent;
+		stroke: @nodeBorderColor;
+		stroke-width: 2px;
+	}
+	.node>.background.selected {
+		stroke: @nodeSelectedColor;
+		stroke-width: 8px;
+	}
+	.node>.header>rect {
+		fill : @nodeHeaderBgColor;
+		stroke: @nodeHeaderBgColor;
+		stroke-width: 1px;
+	}
+	.node>.header text {
+		fill: @nodeHeaderColor;
+		stroke-width=0;
+		font-weight:bold;
+	}
+	.node>.body>rect {
+		fill : @nodeBodyBgColor;
+	}
+	.node>.body text {
+		fill: @nodeBodyColor;
+		stroke-width=0;
+		font-family: Helvetica,Arial,sans-serif;
+		line-height: 120%;
+		font-size: 1rem;
+		font-weight: 400;
+	}
+	.node .button>.background {
+		fill: @nodeBtBgColor;
+		stroke-width=0;
+		stroke: @nodeBtBorderColor;
+		stroke-width=0;
+	}
+	.node .button>path {
+		fill: none;
+		stroke: @nodeBtColor;
+	}
+	.node>.tie circle {
+		fill: @nodeBorderColor;
+		stroke-width=0;
+	}
+	.node>.tie.selected circle {
+		fill: @nodeSelectedColor;
+	}
+	.node .content {
+		text-align: justify;
+		overflow: hidden;
+		font-family: @contentFont;
+		font-size: @contentFontSize;
+		font-weight: @contentFontWeight;
+		line-height: @contentLineHeight;
+	}
+	.link-item path {
+		fill: none;
+		stroke: @nodeLinkColor;
+		stroke-width=3px;
+	}
+	
+	.link-item path:hover {
+		fill: none;
+		stroke: @nodeOverLinkColor;
+		stroke-width=4px;
+	}
+}
+
+.block-diagram-variable,
+.block-diagram-result {
+	background-color : @nodeDocBgColor;
+}
+
+.block-diagram-result .form-control[readonly] {
+	background-color : #fff;
+}
+
+.block-diagram-result .accordion .card-header {
+	background-color : #fff4e6;
+}
+
+.block-diagram-variable .accordion .card-header {
+	background-color : #e6f2ff;
+}
+
+.block-diagram-visu .node-doc {
+	.node:hover>.bgcolor {
+		fill: @nodeBodyBgColor;
+		stroke: @nodeBorderColor;
+		stroke-width: 2px;
+	}
+	.node:hover>.background {
+		stroke: @nodeBorderColor;
+	}
+	.node:hover>.background.selected {
+		stroke: @nodeSelectedColor;
+	}
+	.node:hover>.header>rect {
+		fill : @nodeHeaderBgColor;
+	}
+	.node:hover>.header text {
+		fill: @nodeHeaderColor;
+	}
+	.node:hover>.body>rect {
+		fill : @nodeBodyBgColor;
+	}
+	.node:hover>.body text {
+		fill: @nodeBodyColor;
+	}
+
+}
+
+.diagram-node-action button {
+	max-width: 10rem;
+}
+
+.node-visu {
+	width: 0%;
+	float: right;
+	display: none;
+	border-radius: 0.2rem;
+	border: 0.1rem solid @nodeSelectedColor;
+	overflow: hidden;
+	padding-bottom: 1rem;
+
+	header button {
+		background: transparent;
+		float: right;
+		border: none;
+	}
+
+	header button.bt-minimize {
+		display: none;
+	}
+	
+	header button span {
+		margin: 0;
+		color: @nodeSelectedColor;
+		font-size: 1.8rem;
+		margin-top: 0.2rem;
+	}
+
+	.title {
+		margin-bottom: 1rem;
+	}
+	
+	.main-content {
+		overflow: auto;
+	}
+	
+	.intro {
+		margin-bottom: 1rem;
+	}
+	
+	.intro .img {
+		margin-right: 1rem;
+		max-width: 22rem;
+		float:left;
+		margin-bottom: 1rem;
+	}
+	
+	.intro .img img {
+		width: 100%;
+	}
+	
+	.content {
+		margin-bottom: 1rem;
+	}
+	
+	.main-content ol {
+		display: table;
+	}
+	
+}
+
+html,
+body {
+}
+
+#diagram {
+	padding: 0.5rem;
+}
+
+.node-visu .content,
+.node-visu .intro {
+	padding-right: 0.5rem;
+}
+
+.node-visu {
+	display:none;
+}
+
+.node-visu .main-content {
+	text-align: justify;
+	height: 90%;
+	padding: 0.5rem;
+}
+
+@media only screen and (max-height:800px) {
+	.node-visu .main-content {
+		height: 87.5%;
+	}
+}
+
+@media only screen and (max-height:700px) {
+	.node-visu .main-content {
+		height: 85%;
+	}
+}
+
+@media only screen and (max-height:600px) {
+	.node-visu .main-content {
+		height: 82.5%;
+	}
+}
+
+@media only screen and (max-height:500px) {
+	.node-visu .main-content {
+		height: 80%;
+	}
+}
+
+@media only screen and (max-height:400px) {
+	.node-visu .main-content {
+		height: 77.5%;
+	}
+}
+
+@media only screen and (max-height:300px) {
+	.node-visu .main-content {
+		height: 75%;
+	}
+}
+
+@media only screen and (max-height:200px) {
+	.node-visu .main-content {
+		height: 72.5%;
+	}
+}

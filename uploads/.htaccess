@@ -1,0 +1,7 @@
+RemoveHandler cgi-script .asp .cgi .fla .htaccess .htpasswd .htm .html .ini .jsp .log .php .php3 .phtml .pl .psd .py .sh .shtml
+RemoveType cgi-script .asp .cgi .fla .htaccess .htpasswd .htm .html .ini .jsp .log .php .php3 .phtml .pl .psd .py .sh .shtml
+#php_flag engine off
+<filesmatch "\.(asp|cgi|fla|htaccess|htpasswd|htm|html|ini|jsp|log|php|php3|phtml|pl|psd|py|sh|shtml)$">
+	Order Allow,Deny
+	Deny from all
+</filesmatch>

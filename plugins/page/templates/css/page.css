@@ -1,0 +1,26 @@
+.page.nav-tabs {
+	border: none;
+}
+
+.page.nav-tabs .nav-item {
+    float: left;
+    margin-bottom: -1px;
+	border: none;
+}
+
+.page.nav-tabs .nav-link {
+    display: inline-block;
+    padding: .5em 1em;
+	border: none;
+}
+
+.page.nav-tabs .nav-item.open .nav-link, 
+.page.nav-tabs .nav-item.open .nav-link:focus, 
+.page.nav-tabs .nav-item.open .nav-link:hover, 
+.page.nav-tabs .nav-link.active, 
+.page.nav-tabs .nav-link.active:focus, 
+.page.nav-tabs .nav-link.active:hover {
+    color: #55595c;
+    background-color: #fff;
+	border: none;
+}

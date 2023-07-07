@@ -1,0 +1,32 @@
+input.currency::-webkit-outer-spin-button,
+input.currency::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.crud .input-currency .form-control.currency {
+	max-width: 6.2rem;
+	padding-right: 1.8rem;
+}
+
+.crud .input-currency .form-control[readonly] {
+/*
+	text-align: right;
+*/
+	border: none;
+}
+
+.crud .input-currency {
+	position: relative; 
+	width: min-content;
+}
+
+.crud .input-currency i.fa,
+.crud .input-currency i.fas {
+	position: absolute;
+	right: 0.3rem; 
+	bottom: 0;
+	padding: 0.6rem 0.3rem; 
+	margin-right: 0;
+	opacity: 1;
+	color: lightgrey;
+}

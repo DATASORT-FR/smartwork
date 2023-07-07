@@ -1,0 +1,19 @@
+.accordion .btn-link:focus, .btn-link:hover {
+	text-decoration: none;
+	outline: none;
+}
+
+.accordion .btn-link {
+	text-align: left;
+	width: 100%;
+	margin-bottom: 0;
+}
+
+.accordion .card-header {
+	background-color: #e6f2ff;
+}
+
+.accordion .card-body {
+	padding-top: 1rem;
+}
+

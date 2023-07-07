@@ -1,0 +1,8 @@
+input.integer::-webkit-outer-spin-button,
+input.integer::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.crud .form-control.integer {
+	max-width: 5rem;
+}

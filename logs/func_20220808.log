@@ -1,0 +1,22 @@
+2022-08-08 16:30:12|[INFO]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - insert]| [OK_111] object_link - '' a été créé.
+2022-08-08 16:30:12|[INFO]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - insert]| [OK_111] object_slide - '0' a été créé.
+2022-08-08 16:30:12|[INFO]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - insert]| [OK_111] object_question - '0' a été créé.
+2022-08-08 16:30:12|[INFO]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - insert]| [OK_111] object_node - '' a été créé.
+2022-08-08 16:50:30|[ERROR]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - deleteChildren]| Array
+2022-08-08 16:58:29|[ERROR]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - deleteChildren]| Array
+2022-08-08 17:00:24|[ERROR]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - deleteChildren]| Array
+2022-08-08 17:19:52|[ERROR]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - deleteChildren]| [KO_118] object_node - Impossible d'éditer ''.
+2022-08-08 17:20:03|[ERROR]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - deleteChildren]| [KO_118] object_node - Impossible d'éditer ''.
+2022-08-08 17:20:33|[INFO]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - insert]| [OK_111] object_link - '' a été créé.
+2022-08-08 17:20:33|[INFO]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - update]| [OK_112] object_slide - '303' a été modifié.
+2022-08-08 17:20:33|[INFO]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - insert]| [OK_111] object_question - '0' a été créé.
+2022-08-08 17:20:33|[INFO]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - insert]| [OK_111] object_node - '' a été créé.
+2022-08-08 17:20:44|[INFO]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - update]| [OK_112] object_slide - '303' a été modifié.
+2022-08-08 17:20:44|[INFO]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - update]| [OK_112] object_question - '173' a été modifié.
+2022-08-08 17:20:44|[INFO]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - update]| [OK_112] object_node - '1983' a été modifié.
+2022-08-08 17:20:51|[INFO]|Session : [muo7mcime93d7ic697ae8h5fu9]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - deleteChildren]| [OK_113] object_node - '1983' a été édité.
+2022-08-08 23:03:35|[INFO]|Session : [bu8r8l96o7td8oc4ap6gmnfavi]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - insert]| [OK_111] object_application_ref - '' a été créé.
+2022-08-08 23:27:13|[ERROR]|Session : [bu8r8l96o7td8oc4ap6gmnfavi]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - copy]| [KO_171] object_slide - Impossible de copier '303'.
+2022-08-08 23:33:04|[INFO]|Session : [bu8r8l96o7td8oc4ap6gmnfavi]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - copy]| [OK_151] object_slide - '303' a été copié.
+2022-08-08 23:50:18|[INFO]|Session : [bu8r8l96o7td8oc4ap6gmnfavi]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - copy]| [OK_151] object_slide - '305' a été copié.
+2022-08-08 23:50:57|[INFO]|Session : [bu8r8l96o7td8oc4ap6gmnfavi]|User id : 2|Name : SUPER  ADMINISTRATEUR |Module : [use_object]|Function : [Msg - copy]| [OK_151] object_slide - '306' a été copié.
