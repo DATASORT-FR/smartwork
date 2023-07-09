@@ -1,3 +1,0 @@
-RemoveHandler cgi-script .php .phtml .php3 .pl .py .jsp .asp .sh .cgi
-RemoveType cgi-script .php .phtml .php3 .pl .py .jsp .asp .sh .cgi
-php_flag engine off
