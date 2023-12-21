@@ -43,7 +43,7 @@ define('DB_PASSWORD', '');
 define('DB_MODEL_FILE', 'db_model.php');
 define('DB_SCHEMA_FILE', 'schema.xml');
 
-define('CONTENT_DSN', 'mysql:host=localhost;port=3306;dbname=smartcontents');
+define('CONTENT_DSN', 'mysql:host=localhost;port=3306;dbname=smartwork');
 define('CONTENT_USERNAME', 'root');
 define('CONTENT_PASSWORD', '');
 define('CONTENT_MODEL_FILE', 'db_model.php');
@@ -55,11 +55,19 @@ define('FORUM_PASSWORD', '');
 define('FORUM_MODEL_FILE', 'db_model.php');
 define('FORUM_SCHEMA_FILE', 'schema.xml');
 
+define('TASK_DSN', 'mysql:host=localhost;port=3306;dbname=smartwork');
+define('TASK_USERNAME', 'root');
+define('TASK_PASSWORD', '');
+define('TASK_MODEL_FILE', 'db_model.php');
+define('TASK_SCHEMA_FILE', 'schema.xml');
+
 define('LOCAL_PARAM', 'en-GB.UTF-8');
 define('LOCAL_LANGUAGE', 'en-GB');
 define('LOCAL_ZONE', 'Europe/London');
 define('LOCAL_DATE_FORMAT', 'dd/MM/YYYY');
 define('DEFAULT_LANGUAGE', 'fr');
+
+define('GROUP_NAME', 'www-data');
 
 define('PARTNER_ID', 0);
 

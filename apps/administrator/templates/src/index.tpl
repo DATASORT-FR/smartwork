@@ -16,11 +16,13 @@
 {block name=Header_Right}
 {/block}
 {block name=Nav_Block}
-	<div class="nav-bar col-md-8">
-		{$IncNav}
-	</div>
-	<div class="nav-login col-md-4">	
-		{$IncConnect}
+	<div class="col-lg-12">			
+		<div class="nav_left pull-left">
+			{$IncNav}
+		</div>
+		<div class="nav_right pull-right">
+			{$IncConnect}
+		</div>
 	</div>
 {/block}
 {block name=Right}

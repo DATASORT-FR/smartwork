@@ -31,8 +31,16 @@ $wcrud->pageSet(true); /* set processing type : true = in one box; false = force
 
 $wcrud->fieldSet('copy_code');
 $wcrud->fieldLabelSizeSet('copy_code', 3);
+$wcrud->requiredSet('copy_code');
+
 $wcrud->fieldSet('copy_name');
 $wcrud->fieldLabelSizeSet('copy_name', 3);
+$wcrud->requiredSet('copy_name');
+
+$wcrud->fieldSet('copy_content', 'choice');
+$wcrud->fieldLabelSizeSet('copy_content', 3);
+
+$wcrud->filterSet('flag_admin',4);
 
 $wcrud->displayCrudEdit($application_id);
 

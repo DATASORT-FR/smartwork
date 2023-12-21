@@ -74,12 +74,14 @@ class wlistcomp
     private function _initEvent($event, $command, $icon, $list=false) {
 		$this->_event[] = $event;
 
-		$eventItem['flag']=false;
-		$eventItem['box']=false;
-		$eventItem['command']=$command;
-		$eventItem['file']="";
-		$eventItem['icon']=$icon;
-		$eventItem['list']=$list;
+		$eventItem['flag'] = false;
+		$eventItem['box'] = false;
+		$eventItem['command'] = $command;
+		$eventItem['file'] = '';
+		$eventItem['icon'] = $icon;
+		$eventItem['list'] = $list;
+		$eventItem['text'] = '';
+		$eventItem['ref'] = '';
 		$this->_eventTab[$event] = $eventItem;
 	}
 	
@@ -104,6 +106,14 @@ class wlistcomp
 			$this->_eventTab['bttool']['flag'] = false;
 		}
 		
+		$btHeaderNb = 0;
+		if ($this->_eventTab['btnew']['flag']) {
+			$btHeaderNb++;
+		}
+		if ($this->_eventTab['btlink']['flag']) {
+			$btHeaderNb++;
+		}
+
 		$btNb = 0;
 		if ($this->_eventTab['btedit']['flag']) {
 			$btNb++;
@@ -145,11 +155,13 @@ class wlistcomp
 		$smarty->assign('btorder', $this->_eventTab['btorder']);
 		$smarty->assign('btclose', $this->_eventTab['btclose']);
 		$smarty->assign('btnew', $this->_eventTab['btnew']);
+		$smarty->assign('btlink', $this->_eventTab['btlink']);
 		$smarty->assign('btedit', $this->_eventTab['btedit']);
 		$smarty->assign('btdelete', $this->_eventTab['btdelete']);
 		$smarty->assign('btevent', $this->_eventTab['btevent']);
 		$smarty->assign('bttool', $this->_eventTab['bttool']);
 		$smarty->assign('btnb', $btNb);
+		$smarty->assign('btheadernb', $btHeaderNb);
 		$smarty->assign('btpage', $this->_eventTab['btpage']);
 		$smarty->assign('buttontopflag', $this->_pageButtonTopFlag);
 		$smarty->assign('searchflag', $this->_pageSearchFlag);
@@ -220,6 +232,7 @@ class wlistcomp
 		$this->_initEvent('btorder', 'list', '', false);
 		$this->_initEvent('btpage', 'list', '', false);
 		$this->_initEvent('btnew', 'new', 'user', false);
+		$this->_initEvent('btlink', '', '', false);
 		$this->_initEvent('btclose', '', 'close', false);
 
 		$this->_initEvent('btevent', 'event', 'wrench', true);
@@ -402,6 +415,20 @@ class wlistcomp
     public function eventiconGet($event) {
 		$eventItem = $this->_eventTab[$event];
 		return $eventItem['icon'];
+	}
+
+	public function eventtextSet($event, $value) {
+		$ws = workspace::ws_open();
+		$ws->logSys('debug', 'call function ' . __FUNCTION__, __CLASS__, func_get_args(), 'arguments');
+
+		$eventItem = $this->_eventTab[$event];
+		$eventItem['text']=$value;
+		$this->_eventTab[$event] = $eventItem;
+	}
+
+    public function eventtextGet($event) {
+		$eventItem = $this->_eventTab[$event];
+		return $eventItem['text'];
 	}
 
 	public function eventfileSet($event, $value) {
@@ -933,12 +960,11 @@ class wlistcomp
 			}
 			else {
 				if ($eventItem['command'] != '') {
-					$ref = $connect->constructHref($app,$eventItem['file'],'command:' . $eventItem['command'], 'param1:' . $param1);
+					$eventItem['ref'] = $connect->constructHref($app,$eventItem['file'],'command:' . $eventItem['command'], 'param1:' . $param1);
 				}
 				else {
-					$ref = '';
+					$eventItem['ref'] = $connect->constructHref($app,$eventItem['file'], 'param1:' . $param1);
 				}
-				$eventItem['ref'] = $ref;
 			}
 			$this->_eventTab[$event] = $eventItem;
 		}

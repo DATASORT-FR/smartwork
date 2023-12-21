@@ -793,6 +793,7 @@ class object_connect extends BUS_object
 				$tb_application=$tb_adm_group->joinSet('application_id', 'adm_application', 'id');
 				$tb_application->fieldSet('id', 'application_id');
 				$tb_application->fieldSet('code', 'app');
+				$tb_application->fieldSet('version');
 				$tb_application->fieldSet('status_id');
 				$tb_application->fieldSet('name', 'application');
 				$tb_application->fieldSet('label');
@@ -824,6 +825,7 @@ class object_connect extends BUS_object
 					$tb_application=$tb_adm_group->joinSet('application_id', 'adm_application', 'id');
 					$tb_application->fieldSet('id', 'application_id');
 					$tb_application->fieldSet('code', 'app');
+					$tb_application->fieldSet('version');
 					$tb_application->fieldSet('status_id');
 					$tb_application->fieldSet('name', 'application');
 					$tb_application->fieldSet('label');
@@ -857,6 +859,7 @@ class object_connect extends BUS_object
 				$tb_application = new Smart_select('adm_application');
 				$tb_application->fieldSet('id', 'application_id');
 				$tb_application->fieldSet('code', 'app');
+				$tb_application->fieldSet('version');
 				$tb_application->fieldSet('status_id');
 				$tb_application->fieldSet('name', 'application');
 				$tb_application->fieldSet('label');
@@ -1521,6 +1524,7 @@ class object_connect extends BUS_object
 		$mode = '';
 		$type = '';
 		$id = '';
+		$code = '';
 		$fullPath = false;
 		$noident = 1;
 		$options = array();
@@ -1546,6 +1550,9 @@ class object_connect extends BUS_object
 						break;
 					case "ID" :
 						$id = trim($atemp[1]);
+						break;
+					case "CODE" :
+						$code = trim($atemp[1]);
 						break;
 					case "FULLPATH" :
 						if (strtoupper(trim($atemp[1])) == 'TRUE') {
@@ -1591,6 +1598,11 @@ class object_connect extends BUS_object
 		else {
 			if (($id != '') and ($id != '0')) {
 				$arg['page'] = $ws->paramGet('CONTENT_PAGE');
+			}
+			else {
+				if (!empty($code)) {
+					$arg['page'] = $ws->paramGet('CONTENT_PAGE');
+				}
 			}
 		}
 		if ($id <> '') {
@@ -1669,6 +1681,19 @@ class object_connect extends BUS_object
 					unset($arg['page']);
 				}
 				else {
+					if ((!empty($code)) and (empty($id))) {
+						$content = new Smart_select('cms_content', 'content');
+						$content->fieldSet('id');
+						$content->fieldSet('title');
+						$content->fieldSet('content_page');
+						$content->whereSet('application_id', $applicationId);
+						$content->whereSet('code', $code, 'and');
+						$records = $content->findAll();
+						if (count($records) > 0) {
+							$id = $records[0]['id'];
+						}
+					}
+
 					if (($id != '') and ($id != '0')) {
 						if (($app <> '') and ($app != $ws->paramGet('APP_CODE'))) {
 							$admApp = new Smart_select('adm_application');
@@ -1997,7 +2022,6 @@ class object_connect extends BUS_object
 		
 		$app_only = $ws->paramGet('APP_ONLY');
 		$app = $ws->paramGet('APP_CODE');
-
 		$page = $ws->paramGet('PAGE_NAME');
 		$pageSpec = $ws->paramGet('PAGE_SPEC');
 		$module = $ws->paramGet('MODULE_NAME');
@@ -2257,7 +2281,7 @@ class object_connect extends BUS_object
 			}
 			if ($app == '') {
 				if ($ws->connected_appCount() == 1) {
-					$app = $ws->connected_appDefault();
+//					$app = $ws->connected_appDefault();
 				}
 			}
 			if (($app <> '') and ($page == '')) {

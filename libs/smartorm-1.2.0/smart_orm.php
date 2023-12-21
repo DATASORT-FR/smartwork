@@ -202,6 +202,7 @@ class Smart_select
     private $_dbtable;
     private $_dbfield_join;
     private $_dbfield = array();
+    private $_dbfieldAll = false;
     private $_dbfield_nb;
     private $_dbgroup;
     private $_dbjoin;
@@ -217,6 +218,7 @@ class Smart_select
     {
 		$this->_dbtable = $value;
 		$this->_dbname = $dbname;
+		$this->_dbfieldAll = false;
 		$this->_dbfield_nb = 0;
 		$this->_dbwhere_nb = 0;
 		$this->_dborder_nb = 0;
@@ -338,10 +340,11 @@ class Smart_select
 
 	public function fieldAll() 
 	{
-		$arrayField = PDO_extend::initSessionSchema($this->_dbname, $this->_dbtable);
-		foreach($arrayField as $fieldItem) {
-			$this->fieldSet($fieldItem['name']);
-		}
+		$this->_dbfieldAll = true;
+//		$arrayField = PDO_extend::initSessionSchema($this->_dbname, $this->_dbtable);
+//		foreach($arrayField as $fieldItem) {
+//			$this->fieldSet($fieldItem['name']);
+//		}
 	}
 	
 	public function groupGet() 
@@ -427,35 +430,40 @@ class Smart_select
     public function select_field()
     {
         $sql = "";
-		for ($temp=0; $temp < $this->_dbfield_nb; $temp++) {
-			if ($sql <> "") {
-				$sql = $sql . ", ";
-			}
-			$sql = $sql . "T0." . $this->_dbfield[$temp]['field'] . " as " . $this->_dbfield[$temp]['field_map'];
+		if ($this->_dbfieldAll) {
+			$sql = "*";
 		}
-		$num_table = 0;
-		for ($temp_join=0; $temp_join < $this->_dbjoin_nb; $temp_join++) {
-			$num_table = $num_table + 1;
-			$table_join = $this->_dbjoin[$temp_join]['table_join'];
-			$join_field = $table_join->fieldGet();
-
-			for ($temp=0; $temp < $table_join->field_nbGet(); $temp++) {
+		else {
+			for ($temp=0; $temp < $this->_dbfield_nb; $temp++) {
 				if ($sql <> "") {
 					$sql = $sql . ", ";
 				}
-				$sql = $sql . "T" . $num_table . "." . $join_field[$temp]['field'] . " as " . $join_field[$temp]['field_map'];
+				$sql = $sql . "T0." . $this->_dbfield[$temp]['field'] . " as " . $this->_dbfield[$temp]['field_map'];
 			}
-			$old_num_table = $num_table;
-			for ($temp_join1=0; $temp_join1 < $table_join->_dbjoin_nb; $temp_join1++) {
+			$num_table = 0;
+			for ($temp_join=0; $temp_join < $this->_dbjoin_nb; $temp_join++) {
 				$num_table = $num_table + 1;
-				$table_join1 = $table_join->_dbjoin[$temp_join1]['table_join'];
-				$join_field = $table_join1->fieldGet();
+				$table_join = $this->_dbjoin[$temp_join]['table_join'];
+				$join_field = $table_join->fieldGet();
 
-				for ($temp1=0; $temp1 < $table_join1->field_nbGet(); $temp1++) {
+				for ($temp=0; $temp < $table_join->field_nbGet(); $temp++) {
 					if ($sql <> "") {
 						$sql = $sql . ", ";
 					}
-					$sql = $sql . "T" . $num_table . "." . $join_field[$temp1]['field'] . " as " . $join_field[$temp1]['field_map'];
+					$sql = $sql . "T" . $num_table . "." . $join_field[$temp]['field'] . " as " . $join_field[$temp]['field_map'];
+				}
+				$old_num_table = $num_table;
+				for ($temp_join1=0; $temp_join1 < $table_join->_dbjoin_nb; $temp_join1++) {
+					$num_table = $num_table + 1;
+					$table_join1 = $table_join->_dbjoin[$temp_join1]['table_join'];
+					$join_field = $table_join1->fieldGet();
+
+					for ($temp1=0; $temp1 < $table_join1->field_nbGet(); $temp1++) {
+						if ($sql <> "") {
+							$sql = $sql . ", ";
+						}
+						$sql = $sql . "T" . $num_table . "." . $join_field[$temp1]['field'] . " as " . $join_field[$temp1]['field_map'];
+					}
 				}
 			}
 		}

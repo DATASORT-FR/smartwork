@@ -18,7 +18,7 @@ $wlogin = new wlogin();
 $wmenu = new wmenu();
 $modulehistory = new whistory();
 
-$ws->assign('IncConnect',$wlogin->displayConnect());
+$ws->assign('IncConnect',$wlogin->displayConnect('inline', true, false));
 $ws->assign('IncNav',$wmenu->display($ws->paramGet('APP_CODE'),'MAINMENU', 'main'));
 $ws->assign('FlagHistory',$modulehistory->displayFlaghistory());
 $ws->assign('IncHistory',$modulehistory->displayHistory());

@@ -13,11 +13,16 @@ defined('_WSEXEC') or die();
 $ws->logSys("debug", "Page : " . __FILE__, $ws->paramGet('APP_CODE'));
 $ws->control();
 
+$imagesPath = $ws->paramGet('IMAGES_PATH');
+
 $application = new object_application(); /* Open application class */
 $application_select = $application->displaySelect('0', '');
 
 $category = new object_content_category(); /* Open content category class */
 $category_select = $category->displaySelect('0','');
+
+$author = new object_content_author(); /* Open content category class */
+$author_select = $author->displaySelect();
 
 $connect = new object_connect();
 $pageRef = $connect->constructHref($ws->paramGet('APP_CODE'), $ws->extractPage(__FILE__), 'command:list');
@@ -39,7 +44,7 @@ $wlist->viewSet(true); /* show or not the columns selector. False by default */
 $wlist->filterViewSet('code'); /* display a filter field */
 $wlist->filterViewSet('application_id', 'list', $application_select->returnGet()); /* display a filter field */
 $wlist->columnidpctSet(5); /* set percent size for id column */
-$wlist->columnAdd('application_id',15); /* show application column */
+$wlist->columnAdd('application',15); /* show application column */
 $wlist->columnAdd('code',15); /* show code column */
 $wlist->columnAdd('status',15); /* show description column */
 $wlist->columnAdd('title',40, false); /* show description column */
@@ -54,10 +59,14 @@ $wlist->deletecolumnnameSet('code'); /* column used in the delete confirmation w
 $wcrud->fieldSet('title');
 $wcrud->sizeSet('title',220);
 $wcrud->fieldSet('application_id', 'list', $application_select->returnGet());
+$wcrud->fieldSet('category_id', 'list', $category_select->returnGet());
+$wcrud->fieldLineSet('date_publication', 'date');
+$wcrud->formatSet('date_publication', 'd/m/Y');
 $wcrud->fieldSet('maintab', 'tab');
 	$wcrud->fieldSet('tab1', 'tabcontent','maintab');
 		$wcrud->fieldSet('code', 'text');
 		$wcrud->fieldSet('status_id', 'choice');
+		$wcrud->fieldSet('image', 'image', $imagesPath);
 		$wcrud->fieldSet('intro', 'textarea');
 		$wcrud->rowsSet('intro', 6);
 		$wcrud->colsSet('intro',100);
@@ -67,7 +76,10 @@ $wcrud->fieldSet('maintab', 'tab');
 		$wcrud->rowsSet('content', 25);
 	$wcrud->fieldSet('tab2_end', 'tabcontentend');
 	$wcrud->fieldSet('tab3', 'tabcontent','maintab');
-		$wcrud->fieldSet('category_id', 'list', $category_select->returnGet());
+		$wcrud->fieldSet('author_id', 'list', $author_select->returnGet());
+		$wcrud->fieldSet('author_id', 'number');
+		$wcrud->fieldSet('alias', 'text');
+		$wcrud->sizeSet('alias',60);
 		$wcrud->fieldSet('description', 'textarea');
 		$wcrud->rowsSet('description', 3);
 		$wcrud->colsSet('description',100);
@@ -75,6 +87,60 @@ $wcrud->fieldSet('maintab', 'tab');
 		$wcrud->rowsSet('keywords', 3);
 		$wcrud->colsSet('keywords',50);
 	$wcrud->fieldSet('tab3_end', 'tabcontentend');
+	
+
+	$wcrud->fieldSet('tab4', 'tabcontent','maintab');
+		$wcrud->fieldSet('title_page');
+		$wcrud->sizeSet('title_page',80);
+		$wcrud->fieldSet('param1');
+		$wcrud->sizeSet('param1',80);
+		$wcrud->fieldSet('param2');
+		$wcrud->sizeSet('param2',80);
+		$wcrud->fieldSet('alt', 'text');
+		$wcrud->sizeSet('alt',80);
+		$wcrud->fieldSet('style', 'text');
+		$wcrud->sizeSet('style',10);
+		$wcrud->fieldSet('class', 'text');
+		$wcrud->sizeSet('class',10);
+		$wcrud->fieldSet('icon', 'text');
+		$wcrud->sizeSet('icon',10);
+		$wcrud->fieldSet('path', 'text');
+		$wcrud->sizeSet('path',20);
+		$wcrud->fieldSet('content_page', 'text');
+		$wcrud->sizeSet('content_page',40);
+	$wcrud->fieldSet('tab4_end', 'tabcontentend');
+	
+	$wcrud->fieldSet('tab5', 'tabcontent','maintab');
+		$wcrud->fieldSet('block1', 'textarea');
+		$wcrud->rowsSet('block1', 6);
+		$wcrud->colsSet('block1',100);
+		$wcrud->fieldLineSet('block2', 'textarea');
+		$wcrud->rowsSet('block2', 6);
+		$wcrud->colsSet('block2',100);
+		$wcrud->fieldSet('block3', 'textarea');
+		$wcrud->rowsSet('block3', 6);
+		$wcrud->colsSet('block3',100);
+		$wcrud->fieldLineSet('block4', 'textarea');
+		$wcrud->rowsSet('block4', 6);
+		$wcrud->colsSet('block4',100);
+		$wcrud->fieldSet('block5', 'textarea');
+		$wcrud->rowsSet('block5', 6);
+		$wcrud->colsSet('block5',100);
+		$wcrud->fieldLineSet('block6', 'textarea');
+		$wcrud->rowsSet('block6', 6);
+		$wcrud->colsSet('block6',100);
+	$wcrud->fieldSet('tab5_end', 'tabcontentend');
+
+	$wcrud->fieldSet('tab6', 'tabcontent','maintab');
+		$wcrud->fieldSet('image1', 'image', $imagesPath);
+		$wcrud->fieldSet('image2', 'image', $imagesPath);
+		$wcrud->fieldSet('image3', 'image', $imagesPath);
+		$wcrud->fieldSet('image4', 'image', $imagesPath);
+		$wcrud->fieldSet('image5', 'image', $imagesPath);
+		$wcrud->fieldSet('image6', 'image', $imagesPath);
+	$wcrud->fieldSet('tab6_end', 'tabcontentend');
+	
+	
 $wcrud->fieldSet('maintab_end', 'tabend','maintab');
 
 $wcrud->displayCrud();

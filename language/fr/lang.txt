@@ -206,6 +206,48 @@ Txt_script_duration='Duree du script'
 Mail_from=webmaster@datasort.fr
 Mail_from_name=Contact de Datasort
 
+# Contact form
+Lbl_contact_name='Nom : '
+Lbl_contact_email='Email : '
+Lbl_contact_phone='Téléphone : '
+Lbl_contact_message='Message : '
+
+Txt_contact_error="Une erreur s'est produite lors de l'enregistrement de votre message"
+Txt_contact_ok="Votre message a bien été envoyé"
+Bt_contact_valider="Valider"
+
+Txt_control_name='Vous devez saisir un nom'
+Txt_control_phone='Vous devez saisir un N° de téléphone'
+Txt_control_message='Votre message ne doit pas être vide'
+
+Title_contact_validation="Message envoyé"
+Msg_contact_validation="
+<p>Merci de nous avoir contacté.</p>
+<p>Nous vous ferons un retour le plus vite possible afin de répondre à votre question.</p>
+"
+
+# Mail Contact
+Mail_contact_subject="Demande de contact"
+Mail_contact_txt="
+Une demande de contact a été faite sur le site\r\n
+Nom : [name]\r\n
+Email : [email]\r\n
+Téléphone : [phone]\r\n
+Message (ci-dessous) : \r\n
+[message]
+"
+
+Mail_contact_html="
+<p>Une demande de contact a été faite sur le site
+</p>
+"
+
+# Login form
+Lbl_login_login=Login
+Lbl_login_Password=Password
+Txt_login_login_placeholder=Utilisateur
+Txt_login_password_placeholder=Mot de passe
+
 #Login control
 Title_user_password_lost="Vous avez perdu votre mot de passe"
 Title_user_validation="Vous devez valider votre inscription"

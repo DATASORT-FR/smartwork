@@ -486,32 +486,5 @@ $(document).ready(
 			}
 		);
 
-		$(document).on("click", "#login-box .btn",
-			function(e) {
-				e.preventDefault();
-				var formValidate = true;
-				var form = $(this).parents("form:first");
-				var theHREF = form.attr("event");
-				var postData = form.serialize();
-				var buttonThis = $(this);
-
-				if (formValidate) {
-					form.addClass("wait");
-					buttonThis.addClass("wait");
-					$.ajax({
-						url: theHREF,
-						type : 'POST',
-						data : postData,
-						success: function(result) {
-							form.removeClass("wait");
-							buttonThis.removeClass("wait");
-							document.location.href = '';
-						}
-					});
-				}
-			}
-		);
-
-
 	}
 );

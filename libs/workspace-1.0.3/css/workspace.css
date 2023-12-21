@@ -93,7 +93,8 @@
 }
 
 input.notvalidate,
-select.notvalidate {
+select.notvalidate,
+textarea.notvalidate {
 	border-color: red;
 }
 

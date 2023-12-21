@@ -18,5 +18,5 @@ $wmenu = new wmenu();
 $ws->assign('SiteTitle',$ws->paramGet('SITE_TITLE'));
 $ws->assign('App_name',$ws->paramGet('APP_NAME'));
 
-$ws->assign('IncConnect',$wlogin->displayConnect());
+$ws->assign('IncConnect',$wlogin->displayConnect('inline', true, false));
 $ws->assign('IncNav',$wmenu->display($ws->paramGet('APP_CODE'),'MAINMENU', 'main'));

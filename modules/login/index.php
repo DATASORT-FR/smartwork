@@ -36,7 +36,46 @@ class wlogin
 
     }
 
-    function displayConnect($style = 'default', $labelFlag = true) {
+    function displayLogged($style = 'default') {
+		$ws = workspace::ws_open();
+		$ws->logSys('debug', 'call function ' . __FUNCTION__, __CLASS__, func_get_args(), 'arguments');
+
+		$smarty = new workpage();
+		$smarty->template_dir = $ws->paramGet($ws->paramGet('LOGIN_NAME') . '_TEMPLATES_SRC_DIR') ;
+
+		$display_html = '';
+		$connect = new object_connect();
+		if ($ws->userConnected()) {
+			$userId = $ws->connected_id();
+			$logoutSuccess = $connect->constructHref($ws->paramGet('APP_CODE'));
+
+			$login = '';
+			$surname = '';
+			$email = '';
+			$fct_return = $connect->display($userId);
+			if ($fct_return->statusGet()) {
+				if($fct_return->returnGet()['id'] != 0) {
+					$array_login = $fct_return->returnGet();
+					$login = $array_login['login'];
+					$surname = $array_login['surname'];
+					$email = $array_login['email'];
+				}
+			}
+			$smarty->assign('Style',$style);
+			$smarty->assign('LogoutAction',$connect->constructHref($ws->paramGet('APP_CODE'), "disconnect", "module:" . $ws->paramGet('LOGIN_NAME')));
+			$smarty->assign('LogoutSuccess',$logoutSuccess);
+			$smarty->assign('FlagConnect',$ws->userConnected());
+			$smarty->assign('ConnectName',$ws->connected_name());
+			$smarty->assign('ConnectLogin',$login);
+			$smarty->assign('ConnectSurName',$surname);
+			$smarty->assign('ConnectEmail',$email);
+			$display_html = $smarty->fetch('logged.tpl');
+		}
+		
+		return $display_html;
+	}
+
+    function displayConnect($style = 'default', $labelFlagLogin = true, $labelFlagPassword = -1, $loginSuccess = '') {
 		$ws = workspace::ws_open();
 		$ws->logSys('debug', 'call function ' . __FUNCTION__, __CLASS__, func_get_args(), 'arguments');
 
@@ -44,23 +83,28 @@ class wlogin
 		$smarty->template_dir = $ws->paramGet($ws->paramGet('LOGIN_NAME') . '_TEMPLATES_SRC_DIR') ;
 
 		$connect = new object_connect();
-		if ($ws->sessionGet('connect_id') <> $ws->paramGet('USER_GUEST')) {
-			$smarty->assign('Style',$style);
-			$smarty->assign('LogoutAction',$connect->constructHref($ws->paramGet('APP_CODE'), "disconnect", "module:" . $ws->paramGet('LOGIN_NAME')));
-			$smarty->assign('FlagConnect',$ws->connected());
-			$smarty->assign('ConnectName',$ws->connected_name());
-			$display_html = $smarty->fetch('logged.tpl');
+		if ($ws->userConnected()) {
+			$display_html = $this->displayLogged($style);
 		}
 		else {
-			$smarty->assign('LoginAction',$connect->constructHref($ws->paramGet('APP_CODE'), "connect", "module:" . $ws->paramGet('LOGIN_NAME')));
 			if (isset($_COOKIE['sw_login'])) {
 				$login_value = $_COOKIE['sw_login'];
 			}
 			else {
 				$login_value = '';
 			}
+			if ($labelFlagPassword == -1) {
+				$labelFlagPassword = $labelFlagLogin;
+			}
+			$connect = new object_connect();
+			if (empty($loginSuccess)) {
+				$loginSuccess = $connect->constructHref($ws->paramGet('APP_CODE'));
+			}
 			$smarty->assign('Style',$style);
-			$smarty->assign('LabelFlag',$labelFlag);
+			$smarty->assign('LoginAction',$connect->constructHref($ws->paramGet('APP_CODE'), "connect", "module:" . $ws->paramGet('LOGIN_NAME')));
+			$smarty->assign('LabelFlagLogin',$labelFlagLogin);
+			$smarty->assign('LabelFlagPassword',$labelFlagPassword);
+			$smarty->assign('LoginSuccess',$loginSuccess);
 			$smarty->assign('LoginValue',$login_value);
 			$display_html = $smarty->fetch('login.tpl');
 		}

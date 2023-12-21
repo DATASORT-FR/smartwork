@@ -74,3 +74,83 @@
 	justify-content: center;
 	margin-bottom: 2rem;
 }
+
+/*    Tab   */
+.tab-link {
+	display: flex;
+	justify-content: normal;
+}
+.tab-link .undertitle {
+	display: block;
+}
+.tab-link h2 {
+	margin-bottom:0;
+	padding-bottom:0;
+}
+.tab-link  .down h2 {
+	color: #9dabaf;
+}
+.tab-link [class^=link] {
+	padding-right: 4rem;
+	cursor: pointer;
+}
+
+
+.tab-content {
+	padding-top: 1rem;
+}
+	
+.tab-content .up {
+		display: block;
+}
+
+.tab-content .down {
+		display: none;
+}
+
+@media (max-width: 767px) {
+	.tab-content {
+		padding-top: 0.5rem;
+	}
+	.tab-link .undertitle {
+		display: none;
+	}
+	.tab-link [class^=link] {
+		padding-right: 2rem;
+	}
+	.tab-link h2 {
+		font-size: 1.5rem;
+	}
+}
+
+@media (max-width: 374px) {
+	.tab-link [class^=link] {
+		padding-right: 1rem;
+	}
+
+	.tab-link h2 {
+		font-size: 1.3rem;
+	}
+}
+
+/*     Blocks */
+.login-block, 
+.changepassword-block {
+    max-width: 43rem;
+    margin: auto;
+}
+
+.login-block,
+.changepassword-block {
+  max-width: 43rem;
+  margin: auto;
+}
+.login-block .message,
+.changepassword-block .message {
+  color: red;
+  font-weight: 600;
+}
+.login-block .validation .email,
+.changepassword-block .validation .email{
+  font-weight: 600;
+}

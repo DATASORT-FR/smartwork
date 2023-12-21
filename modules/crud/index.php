@@ -1083,8 +1083,9 @@ class wcrud
 			$value = $initValue['value'];
 			$type = $initValue['type'];
 			$source = $initValue['source'];
+			$mode = $initValue['mode'];
 			if (isset($argArray[$field])) {
-				if (empty($argArray[$field])) {
+				if (($mode == 'init') and (empty($argArray[$field]))) {
 					switch ($type) {
 						case 'function':
 							$function = $value;
@@ -1114,6 +1115,46 @@ class wcrud
 				}
 			}
 		}
+
+		for ($temp=0; $temp < count($this->_initValue_array); $temp++) {
+			$initValue = $this->_initValue_array[$temp];
+			$field = $initValue['field'];
+			$value = $initValue['value'];
+			$type = $initValue['type'];
+			$source = $initValue['source'];
+			$mode = $initValue['mode'];
+			if (isset($argArray[$field])) {
+				if (empty($mode)) {
+					switch ($type) {
+						case 'function':
+							$function = $value;
+							if (function_exists($function)) {
+								$value = $function();
+							}
+							break;
+						case 'transform':
+							$function = $value;
+							if (function_exists($function)) {
+								if (isset($argArray[$source])) {
+									$value = $function($argArray[$source]);
+								}
+								else {
+									$value = $function($argArray);
+								}
+							}
+							break;
+						case 'value':
+							$fieldSrc = $value;
+							if (isset($argArray[$fieldSrc])) {
+								$value = $argArray[$fieldSrc];
+							}
+							break;
+					}
+					$argArray[$field] = $value;
+				}
+			}
+		}
+
 		return $argArray;
 	}
 	
@@ -2023,7 +2064,25 @@ class wcrud
 	}
 
     public function initValueGet() {
-		$filter = $this->_initValue_array;
+		$initValue = array();
+		$filter = array();
+
+		for ($temp=0; $temp < count($this->_initValue_array); $temp++) {
+			$initValue = $this->_initValue_array[$temp];
+			$field = $initValue['field'];
+			$value = $initValue['value'];
+			$type = $initValue['type'];
+			$source = $initValue['source'];
+			$mode = $initValue['mode'];
+			if ($mode == 'init') {
+				$initValue['field']=$field;
+				$initValue['value']=$value;
+				$initValue['type'] = $type;
+				$initValue['source'] = $source;
+				$initValue['mode'] = $mode;
+				$filter[] = $initValue;
+			}
+		}
 		return $filter;
 	}
 
@@ -2036,6 +2095,44 @@ class wcrud
 		$initValue['value']=$value;
 		$initValue['type'] = $type;
 		$initValue['source'] = $source;
+		$initValue['mode'] = 'init';
+		$this->_initValue_array[] = $initValue;
+		return true;
+	}
+
+    public function valueGet() {
+		$initValue = array();
+		$filter = array();
+
+		for ($temp=0; $temp < count($this->_initValue_array); $temp++) {
+			$initValue = $this->_initValue_array[$temp];
+			$field = $initValue['field'];
+			$value = $initValue['value'];
+			$type = $initValue['type'];
+			$source = $initValue['source'];
+			$mode = $initValue['mode'];
+			if (empty($mode)) {
+				$initValue['field']=$field;
+				$initValue['value']=$value;
+				$initValue['type'] = $type;
+				$initValue['source'] = $source;
+				$initValue['mode'] = $mode;
+				$filter[] = $initValue;
+			}
+		}
+		return $filter;
+	}
+
+    public function valueSet($field, $value, $type = '', $source = '', $mode = '') {
+		$ws = workspace::ws_open();
+		$ws->logSys('debug', 'call function ' . __FUNCTION__, __CLASS__, func_get_args(), 'arguments');
+		
+		$initValue = array();
+		$initValue['field']=$field;
+		$initValue['value']=$value;
+		$initValue['type'] = $type;
+		$initValue['source'] = $source;
+		$initValue['mode'] = $mode;
 		$this->_initValue_array[] = $initValue;
 		return true;
 	}

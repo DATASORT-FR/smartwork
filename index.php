@@ -114,7 +114,6 @@ function modeAppPage() {
 		}
 	}
 }
-
 if (!$ws->connected() and ($ws->paramGet('PAGE_NAME') <> 'connect') and ($ws->paramGet('PAGE_NAME') <> 'error')) {
 	require_once($ws->paramGet('INCLUDES_DIR').'init_template.php');
 	require_once($ws->paramGet('PAGES_DIR') . 'login.php');

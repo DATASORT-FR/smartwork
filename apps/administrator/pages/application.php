@@ -13,6 +13,19 @@ defined('_WSEXEC') or die();
 $ws->logSys("debug", "Page : " . __FILE__, $ws->paramGet('APP_CODE'));
 $ws->control();
 
+function analyzeFlagAdmin($argArray) {
+	$flagAdmin = $argArray['flag_admin'];
+	$appName = $argArray['name'];
+	$appDir = $argArray['dir'];
+	
+    if (($flagAdmin == 0) and ($appName != $appDir)) {
+		$flagAdmin = 3;
+	}
+	return $flagAdmin;
+}
+
+$command = $ws->argGet('command');
+
 $connect = new object_connect();
 $ws->assign('page_ref',$connect->constructHref($ws->paramGet('APP_CODE'), $ws->extractPage(__FILE__), 'command:list'));
 
@@ -22,7 +35,7 @@ $status_select = $object->addSelect($status_select, "0", $ws->getConfigVars("Lbl
 $status_select = $object->addSelect($status_select, "1", $ws->getConfigVars("Lbl_status_1"));
 
 $apptype = new object_apptype(); /* Open apptype class */
-$apptype_select = $apptype->displaySelect("0", "")->returnGet();
+$apptype_select = $apptype->displaySelect("", " ", "code")->returnGet();
 
 $wcrud = new wcrud('object_application', $ws->extractPage(__FILE__));
 $wcrud->titleSet(true); /* use Title */
@@ -47,6 +60,12 @@ $wlist->columnAdd('public_label',10); /* show label column */
 $wlist->columnactionpctSet(5); /* set percent size for edit and delete column */
 
 $wlist->eventSet('btnew', true); /* show new button */
+$wlist->eventSet('btlink', true); /* show edit button */
+$wlist->eventfileSet('btlink', 'application_import'); /* php event file */
+$wlist->eventboxSet('btlink', false);
+$wlist->eventiconSet('btlink', '');
+$wlist->eventtextSet('btlink', 'Importer');
+
 $wlist->eventSet('btevent', true); /* show edit button */
 $wlist->eventfileSet('btevent', 'application_ref'); /* php event file */
 $wlist->eventboxSet('btevent', false);
@@ -58,42 +77,71 @@ $wlist->deletecolumnnameSet('code'); /* column used in the delete confirmation w
 	
 // line 1
 $wcrud->fieldSet('code');
-$wcrud->fieldColSizeSet('code',3);
+$wcrud->fieldColSizeSet('code',4);
 $wcrud->fieldLabelSizeSet('code', 2);
+if (($command == 'edit') or ($command == 'update')) {
+	$wcrud->readonlySet('code');
+}
 
 $wcrud->fieldLineSet('label');
-$wcrud->fieldColSizeSet('label',9);
+$wcrud->fieldColSizeSet('label',8);
 $wcrud->fieldLabelSizeSet('label', 2);
 
-$wcrud->fieldSet('flag_archive', 'hidden');
+$wcrud->fieldSet('flag_admin', 'hidden');
+$wcrud->fieldSet('dir', 'hidden');
 
 // line 2
 $wcrud->fieldSet('name');
+$wcrud->fieldColSizeSet('name',4);
+$wcrud->fieldLabelSizeSet('name', 2);
 
-$wcrud->fieldLineSet('status_id', 'list', $status_select);
+if (($command == 'edit') or ($command == 'update')) {	
+	$wcrud->readonlySet('name');
 
-$wcrud->fieldLineSet('bt_archive', 'buttonconfirm', 'application_archive', 'id','code');
-$wcrud->fieldLabelSet('bt_archive', false);
-$wcrud->alignSet('bt_archive', 'right');
-$wcrud->fieldDisplaySet('bt_archive', 'edit');
-$wcrud->fieldDisplayOnlySet('bt_archive', 'flag_archive', 0);
+	$wcrud->fieldLineSet('status_id', 'list', $status_select);
+	$wcrud->fieldColSizeSet('status_id',8);
+	$wcrud->fieldLabelSizeSet('status_id', 2);
+	$wcrud->fieldDisplayOnlySet('status_id', 'flag_admin', 0);
 
-$wcrud->fieldAppendSet('bt_delete', 'buttonconfirm', 'application_delete', 'id','code');
-$wcrud->fieldLabelSet('bt_delete', false);
-$wcrud->alignSet('bt_delete', 'right');
-$wcrud->fieldDisplaySet('bt_delete', 'edit');
-$wcrud->fieldDisplayOnlySet('bt_delete', 'flag_archive', 0);
+	$wcrud->fieldSet('bt_export', 'buttonconfirm', 'application_export', 'id','code');
+	$wcrud->fieldColSizeSet('bt_export',12);
+	$wcrud->fieldLabelSizeSet('bt_export', 2);
+	$wcrud->fieldLabelSet('bt_export', true);
+	$wcrud->alignSet('bt_export', 'right');
+	$wcrud->fieldDisplaySet('bt_export', 'edit');
+	$wcrud->fieldDisplayOnlySet('bt_export', 'flag_admin', 0);
+	$wcrud->fieldDisplayOnlySet('bt_export', 'name', 'administrator', '!=');
 
-$wcrud->fieldAppendSet('bt_copy', 'button', 'application_copy', 'id');
-$wcrud->fieldLabelSet('bt_copy', false);
-$wcrud->alignSet('bt_copy', 'right');
-$wcrud->fieldDisplaySet('bt_copy', 'edit');
-$wcrud->fieldDisplayOnlySet('bt_copy', 'flag_archive', 0);
+	$wcrud->fieldAppendSet('bt_delete', 'buttonconfirm', 'application_delete', 'id','code');
+	$wcrud->fieldLabelSet('bt_delete', false);
+	$wcrud->alignSet('bt_delete', 'right');
+	$wcrud->fieldDisplaySet('bt_delete', 'edit');
+	$wcrud->fieldDisplayOnlySet('bt_delete', 'flag_admin', 0);
+	$wcrud->fieldDisplayOnlySet('bt_delete', 'name', 'administrator', '!=');
+
+	$wcrud->fieldAppendSet('bt_copy', 'button', 'application_copy', 'id');
+	$wcrud->fieldLabelSet('bt_copy', false);
+	$wcrud->alignSet('bt_copy', 'right');
+	$wcrud->fieldDisplaySet('bt_copy', 'edit');
+	$wcrud->fieldDisplayOnlySet('bt_copy', 'flag_admin', 0);
+	$wcrud->fieldDisplayOnlySet('bt_copy', 'name', 'administrator', '!=');
+
+	$wcrud->fieldAppendSet('bt_rename', 'button', 'application_rename', 'id');
+	$wcrud->fieldLabelSet('bt_rename', false);
+	$wcrud->alignSet('bt_rename', 'right');
+	$wcrud->fieldDisplaySet('bt_rename', 'edit');
+	$wcrud->fieldDisplayOnlySet('bt_rename', 'flag_admin', 0);
+	$wcrud->fieldDisplayOnlySet('bt_rename', 'name', 'administrator', '!=');
+}
 
 // line 3
-$wcrud->fieldSet('apptype_id', 'list', $apptype_select);
+$wcrud->fieldSet('apptype', 'list', $apptype_select);
 
 $wcrud->fieldLineSet('public', 'choice');
+
+$wcrud->fieldLineSet('version');
+$wcrud->fieldColSizeSet('version',3);
+$wcrud->fieldLabelSizeSet('version', 2);
 
 // line 4
 $wcrud->fieldSet('canonical');
@@ -121,7 +169,13 @@ $wcrud->fieldColSizeSet('image',8);
 //$wcrud->fieldLineSet('clear');
 
 $wcrud->initValueSet('content_page', 'content');
-$wcrud->initValueSet('flag_archive', 0);
+if ($command == 'create') {	
+	$wcrud->valueSet('flag_admin', 2);
+}
+
+if ($command == 'update') {	
+	$wcrud->valueSet('flag_admin', 'analyzeFlagAdmin', 'transform');
+}
 
 $wcrud->displayCrud();
 ?>

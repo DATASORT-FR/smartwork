@@ -15,6 +15,18 @@ $ws->logSys("debug", "Page : " . __FILE__, 'Main');
 
 $connect = new object_connect();
 $fct_return = $connect->disconnect();
-$ws->redirect($connect->constructHref($ws->paramGet('APP_CODE')));
+if ($fct_return->statusGet()) {
+	if($fct_return->returnGet() != 0) {
+		$return = 'Ok';
+	}
+	else {
+		$return = 'Unvalid';
+	}
+}
+else {
+	$return = 'Error';
+}
+echo $return;
+exit();
 
 ?>

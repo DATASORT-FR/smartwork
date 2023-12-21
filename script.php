@@ -17,18 +17,16 @@
 // Arguments
 $appCode = '';
 $scriptName = '';
+
 if (isset($argv[1])) {
 	$atemp = explode("/", $argv[1]);
 	if (isset($atemp[1])) {
 		$appCode = strtoupper($atemp[0]);
 		$scriptName = $atemp[1];
-		$argv[1] = 'app=' . $appCode;
 	}
 	else {
 		$scriptName = $atemp[0];	
-		$argv[1] = 'app=';
 	}
-	$argv[2] = 'script=' . $scriptName;
 }
 
 require_once('includes/init.php'); /* basic include */

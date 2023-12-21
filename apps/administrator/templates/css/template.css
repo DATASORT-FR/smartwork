@@ -12,6 +12,7 @@ body {
 }
 
 .navigation-zone {
+	display: block;
 	background-color: #0275d8;
 }
 

@@ -39,6 +39,71 @@ if (!defined('SESSION_CACHE')) {
 	define('SESSION_CACHE', false);
 }
 
+if (!defined('RIGHT_READ')) {
+	define('RIGHT_READ', 1);
+}
+if (!defined('RIGHT_UPDATE')) {
+	define('RIGHT_UPDATE', 2);
+}
+
+if (!defined('GROUP_NAME')) {
+	define('GROUP_NAME', 'www-data');
+}
+
+/**
+* init value in a array
+*
+* @param array pointer - pointer to the array
+* 		 string - key in the array
+*        any - default value if the key is not in the attary
+*
+* @return boolean - true if the default value has been seted
+*
+* @access public
+*/
+function initCont(&$fieldArray, $key, $value) {
+	$return = true;
+		
+	$traitFlag = false;
+	if (!isset($fieldArray[$key])) {
+		$traitFlag = true;
+	}
+	else {
+		if (empty($fieldArray[$key])) {
+			$traitFlag = true;
+		}
+	}
+	if ($traitFlag) {
+		$fieldArray[$key] = $value;
+	}
+	if ($fieldArray[$key] == 'empty') {
+		$fieldArray[$key] = '';			
+	}
+	return $return;
+}
+
+/**
+* read keys value in a array and set default value if not existe
+*
+* @param array - array
+* 		 string - key in the array
+*        any - default value if the key is not in the array
+*
+* @return any - return value of the key
+*
+* @access public
+*/
+function readCont($fieldArray, $key, $default = '') {
+		
+	if (!isset($fieldArray[$key])) {
+		$return = $default;
+	}
+	else {
+		$return = $fieldArray[$key];			
+	}	
+	return $return;
+}
+
 /**
 * Encode image to base 64
 *
@@ -793,31 +858,112 @@ function duration($startDateTime, $endDateTime) {
 }
 
 /**
-* copy file or directory 
+* Read json file 
 *
-* @param string File or directory source
-*        string File or directory destination
-*        int    New folder creation permissions
+* @param string File
 *
-* @return no
+* @return array
 */
-function xcopy($source, $destination, $permissions = 0755) {
+function jsonRead($filePath) {
+	$jsonArray = array();
+
+	if (file_exists($filePath)) {
+        $fp = fopen($filePath, "r");
+        $fpSize = filesize($filePath);
+        $strTemp = fread($fp, $fpSize);
+        fclose($fp);
+		$jsonArray = json_decode( $strTemp, true);
+	}
+	
+	return $jsonArray;
+}
+
+/**
+* copy file or folder 
+*
+* @param string File or folder source
+*        string File or folder destination
+*        int    New folder right RIGHT_UPDATE or RIGHT_READ
+*
+* @return boolean
+*/
+function xcopy($source, $destination, $right = RIGHT_UPDATE) {
+	$return  = true;
+	
+	$permissions = 0775;
+	if ($right != RIGHT_UPDATE) {
+		$permissions = 0755;
+	}
+	$source = str_replace('\/','/',$source);
+	$destination = str_replace('\/','/',$destination);
 	if ((substr($source,-1) != '.') && (substr($source,-2) != '..')) {
 		if (is_dir($source)) {
-			if (!file_exists($destination)) {
-				mkdir($destination, $permissions);
-			}
+			xmkdir($destination, $permissions);
 			foreach (scandir($source) as $file) {
-				xcopy($source . '/' . $file, $destination . '/' . $file, $permissions);
+				xcopy($source . '/' . $file, $destination . '/' . $file, $right);
 			}
 		}
 		else {
 			copy($source, $destination);
+			chmod($destination, $permissions);
+			if (defined('GROUP_NAME')) {
+				chgrp($destination, GROUP_NAME);
+			}
 		}
 	}
+
+	return $return;
 }
 
- function xdelete($source) {
+function xpath($source) {
+
+	$source .= '/';
+	$source = str_replace('\/','/',$source);
+	$source = str_replace('//','/',$source);
+
+	return $source;
+}
+
+/**
+* create folder 
+*
+* @param string folder to create
+*        int    New folder right RIGHT_UPDATE or RIGHT_READ
+*
+* @return boolean
+*/
+function xmkdir($destination, $right = RIGHT_UPDATE) {
+	$return  = true;
+	
+	$permissions = 0775;
+	if ($right != RIGHT_UPDATE) {
+		$permissions = 0755;
+	}
+	$destination = str_replace('\/','/',$destination);
+	
+	if (!file_exists($destination)) {
+		@mkdir($destination, $permissions, true);
+	}
+	$file = $destination.'/index.html';
+	if (!file_exists($file)) {
+		$fp = fopen($file, 'w');
+		fwrite($fp, '<html><body></body></html>');
+		fclose($fp);
+	}
+
+	return $return;
+}
+
+/**
+* delete file or folder (with all files) 
+*
+* @param string folder or file to delete
+*
+* @return boolean
+*/
+function xdelete($source) {
+	$return  = true;
+	
 	if (is_dir($source)) {
 		$objects = scandir($source);
 		foreach ($objects as $object) {
@@ -836,7 +982,67 @@ function xcopy($source, $destination, $permissions = 0755) {
 	else {
 		unlink($source);
 	}
+
+	return $return;
 }
+
+/**
+* replace string in a file 
+*
+* @param string file to process
+*        string string to replace
+*        string string changed string
+*
+* @return boolean
+*/
+function xreplaceInfile($file, $find, $replace) {
+	$return  = true;
+	
+	if ((file_exists($file)) and (!empty($find)) and ($find != $replace)) {
+		$content = file_get_contents($file);
+		if ($content === false) {
+			$return  = false;
+		} 
+		else {
+			$content = str_replace($find, $replace, $content);
+			if (file_put_contents($file, $content) === false) {
+				$return  = false;
+			}
+		}
+	}
+
+	return $return;
+}
+
+/**
+* list files in folder and sub-folder 
+*
+* @param string source folder
+*        string Filter to apply (regex)
+*        int    New folder right RIGHT_UPDATE or RIGHT_READ
+*
+* @return boolean
+*/
+function xscan($source, $filter) {
+	$return  = array();
+	
+	if (is_dir($source)) {
+		$source = str_replace('\/','/',$source);
+		if ((substr($source,-1) != '.') && (substr($source,-2) != '..')) {
+			foreach (preg_grep($filter, scandir($source)) as $file) {
+				$return[] = $source . '/' . $file;
+			}
+			foreach (scandir($source) as $file) {
+				if (is_dir($source . '/' . $file)) {
+					$return = array_merge($return, xscan($source . '/' . $file, $filter));
+				}
+			}
+		}
+	}
+
+	return $return;
+}
+
 
 function initWorkConfig(&$smarty, $reference = "") {
 	$ws = workspace::ws_open();
@@ -980,6 +1186,18 @@ class workspace extends Smarty
 	private $_pageImage;
 	
     public $_paramarray = array ();
+
+
+	public static function codeToLabel($code) {
+		$ws = self::ws_open();
+	
+		$label = $ws->getConfigVars($code);
+		if (empty($label)) {
+			$label = $code;
+		}
+		return $label;
+	}
+
 
 	public static function ws_open($baseUrl='', $connexionDuration=30, $cacheDuration=0, $sessionServer='') {
 		if (!isset(self::$_instance)) {
@@ -1494,14 +1712,42 @@ class workspace extends Smarty
     {
 		$this->_pageImage = $value;
 	}
+	
+	public function userConnected() {
+		$flagConnect = false;
 
-	public function connected() {
-		if ((!isset($argv)) && ($this->sessionGet('connect_id') == '')) {
-			return false;
+		if (!empty($this->paramGet('USER_GUEST'))) {
+			if ($this->sessionGet('connect_id') != $this->paramGet('USER_GUEST')) {
+				$flagConnect = $this->connected();
+			}
 		}
 		else {
-			return true;			
-		}		
+			$flagConnect = $this->connected();
+		}
+		return $flagConnect;
+	}
+
+	public function adminConnected() {
+		$flagConnect = false;
+
+		if (!empty($this->paramGet('USER_SUPERADMIN'))) {
+			if ($this->sessionGet('connect_id') == $this->paramGet('USER_SUPERADMIN')) {
+				$flagConnect = $this->connected();
+			}
+		}
+		return $flagConnect;
+	}
+
+	public function connected() {
+		$flagConnect = false;
+
+		if ((!isset($argv)) && ($this->sessionGet('connect_id') == '')) {
+			$flagConnect = false;
+		}
+		else {
+			$flagConnect = true;			
+		}
+		return $flagConnect;
 	}
 
 	public function connected_id() {
@@ -1675,6 +1921,19 @@ class workspace extends Smarty
 		else {
 			return '';				
 		}
+	}
+
+	/**
+	* Get all arg ($_GET) variables
+	*
+	* @param no
+	*
+	* @return array - arg array
+	*
+    * @access public
+	*/
+	public function argAllGet() {
+		return $this->_arrayGet;
 	}
 
 	/**

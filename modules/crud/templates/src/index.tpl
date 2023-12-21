@@ -80,7 +80,7 @@
 					</button>
 				{/if}
 				{if $btokflag}
-					<button type="submit" id="{$html_id}{$object_id}-bt_update" class="btn btn-primary bt-event" event="{$btokref}">
+					<button type="submit" id="{$html_id}{$object_id}-bt_update" class="btn btn-primary bt-event" data-loadingtext="{#Txt_loading#}" event="{$btokref}">
 					{if $display == 'edit'}
 						<span class="fa fa-check" width="16" height="16"></span>  {#Bt_update#}
 					{else}

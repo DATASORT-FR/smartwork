@@ -35,12 +35,14 @@
 					</div>	
 				</div>
 				<div class="form-row">
+					<label class="form-label"></label>
 					<div class="user_password_link link-a center">
 						{#Lbl_login_password_lost#}
 					</div>
 				</diV>
 				<div class="form-row">
-					<div class="link-btn user_login_button center" event="{$LoginAction}">
+					<label class="form-label"></label>
+					<div class="link-btn user_login_button center" event="{$LoginAction|default:''}" return="{$LoginReturn|default:''}>
 						<i class="fas fa-sign-in-alt me-1" aria-hidden="true"></i>
 						{#Bt_login_connect#}
 					</div>
@@ -86,7 +88,8 @@
 						</div>	
 					</div>
 					<div class="form-row">
-						<div class="link-btn user_inscription_button center" event="{$InscriptionAction|default:''}">
+						<label class="form-label"></label>
+						<div class="link-btn user_inscription_button center" event="{$InscriptionAction|default:''}" return="{$InscriptionReturn|default:''}>
 							<i class="fas fa-user-plus me-1"></i>
 							{#Bt_login_inscription#}
 						</div>

@@ -2,7 +2,7 @@
 	<nav id="topNav" class="navbar navbar-expand-lg {$Menu_classAdd}">
 		<div class="container-fluid">
 			{if $Menu_back==true}
-				<a class="navbar-brand nav-link mnu_backward" title="" href="{$Menu_homepage}">
+				<a class="nav-link mnu_backward" title="" href="{$Menu_homepage}">
 					<span class="fa fa-arrow-left"></span>
 				</a>
 			{/if}

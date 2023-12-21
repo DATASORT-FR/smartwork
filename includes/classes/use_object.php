@@ -18,27 +18,33 @@ const OK_CODE = array(
 	'update' => 'OK_112',
 	'edit' => 'OK_113',
 	'archive' => 'OK_114',
+	'copy' => 'OK_115',
+	'other' => 'OK_119',
 	'deletePending' => 'OK_120',
 	'insertPending' => 'OK_121',
 	'updatePending' => 'OK_122',
 	'editPending' => 'OK_123',
 	'archivePending' => 'OK_124',
-	'copy' => 'OK_151',
-	'other' => 'OK_113',
+	'importPending' => 'OK_125',
+	'exportPending' => 'OK_126',
 	);
 const KO_CODE = array(
-	'delete' => 'KO_115',
-	'insert' => 'KO_116',
-	'update' => 'KO_117',
-	'edit' => 'KO_118',
-	'archive' => 'KO_119',
-	'deletePending' => 'KO_125',
-	'insertPending' => 'KO_126',
-	'updatePending' => 'KO_127',
-	'editPending' => 'KO_128',
-	'archivePending' => 'KO_129',
-	'copy' => 'KO_171',
-	'other' => 'KO_118',
+	'delete' => 'KO_110',
+	'insert' => 'KO_111',
+	'update' => 'KO_112',
+	'edit' => 'KO_113',
+	'archive' => 'KO_114',
+	'copy' => 'KO_115',
+	'exist' => 'KO_116',
+	'not-exist' => 'KO_117',
+	'other' => 'KO_119',
+	'deletePending' => 'KO_120',
+	'insertPending' => 'KO_121',
+	'updatePending' => 'KO_122',
+	'editPending' => 'KO_123',
+	'archivePending' => 'KO_124',
+	'importPending' => 'KO_125',
+	'exportPending' => 'KO_126',
 	);
 
 /**
@@ -345,8 +351,13 @@ class BUS_object
 			$codeValue = $argArray[$this->_codeValueField];
 		}
 		else {
-			if (isset($argArray['id'])) {
-				$codeValue = $argArray['id'];
+			if (isset($argArray['code'])) {
+				$codeValue = $argArray['code'];
+			}
+			else {
+				if (isset($argArray['id'])) {
+					$codeValue = $argArray['id'];
+				}
 			}
 		}
 		$ws->logfunc($logType, $code, array('name' => $this->nameGet(), 'code' => $codeValue));
@@ -1813,7 +1824,7 @@ class BUS_object
 						$defaultValue = trim($atemp[1]);
 						break;
 					case 'DESCRIPTION' :
-						$defaultDescription = trim($atemp[1]);
+						$defaultDescription = $atemp[1];
 						break;
 					case 'ID' :
 						$fieldId = trim($atemp[1]);
@@ -1829,7 +1840,7 @@ class BUS_object
 						$defaultValue = trim($argFunc[$temp]);
 						break;
 					case 2 :
-						$defaultDescription = trim($argFunc[$temp]);
+						$defaultDescription = $argFunc[$temp];
 						break;
 					case 3 :
 						$fieldId = trim($argFunc[$temp]);

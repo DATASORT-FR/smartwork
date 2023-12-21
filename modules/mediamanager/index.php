@@ -123,15 +123,9 @@ class Wmedia
 
 		$path = str_replace('\/','/',$path);
 		$return = true;
-		$file = $path.'/index.html';
-		if (!file_exists($path)) {
-			@mkdir($path,0775,true);
-		}
-		if (!file_exists($file)) {
-			$fp = fopen($file, 'w');
-			fwrite($fp, '<html><body></body></html>');
-			fclose($fp);
-		}
+
+		xmkdir($path);
+
 		return $return;
 	}
 

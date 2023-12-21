@@ -142,24 +142,29 @@ define('SITE_BASE', BASE_NAME . FRAMEWORK_ROOT);
 // Framework Path
 define('API_PATH', 'api/');
 define('APPS_PATH', 'apps/');
+define('APPS_ADMINISTRATOR_PATH', 'apps/administrator/');
 define('ARCHIVE_PATH', 'archive/');
-define('BASE_PATH', 'base/');
+define('BACKUP_PATH', 'backup/');
 define('CACHE_PATH', 'cache/');
 define('CLASSES_PATH', 'includes/classes/');
 define('COMPILE_PATH', 'compile/');
 define('DEFAULT_PATH', 'default/');
 define('FILES_PATH', 'files/');
 define('IMAGES_PATH', 'images/');
+define('IMAGES_ADMINISTRATOR_PATH', 'images/administrator/');
+define('IMAGES_DEFAULT_PATH', 'images/default/');
 define('INCLUDES_PATH', 'includes/');
+define('INIT_PATH', 'init/');
 define('LANGUAGE_PATH', 'language/');
 define('LIBS_PATH', 'libs/');
 define('LOGS_PATH', 'logs/');
-define('MODELS_PATH', 'includes/model/');
+define('MODELS_PATH', 'includes/models/');
 define('MODULES_PATH', 'modules/');
 define('PAGES_PATH', 'pages/');
 define('PLUGINS_PATH', 'plugins/');
 define('RELA_PATH', './');
 define('SCRIPTS_PATH', 'scripts/');
+define('TEMPLATES_PATH', 'templates/');
 define('TEMPLATES_CSS_PATH', 'templates/css/');
 define('TEMPLATES_JS_PATH', 'templates/js/');
 define('TEMPLATES_SRC_PATH', 'templates/src/');
@@ -248,7 +253,6 @@ if (!defined('UPLOAD_ROOT')) {
 	$ws->paramSet('API_DIR', SITE_ROOT_DIR . DEFAULT_PATH . API_PATH);
 	$ws->paramSet('APPS_DIR', SITE_ROOT_DIR . APPS_PATH);
 	$ws->paramSet('ARCHIVE_DIR', SITE_ROOT_DIR . ARCHIVE_PATH);
-	$ws->paramSet('BASE_DIR', SITE_ROOT_DIR . BASE_PATH);
 	$ws->paramSet('CACHE_DIR', SITE_ROOT_DIR . CACHE_PATH);
 	$ws->paramSet('CLASSES_DIR', SITE_ROOT_DIR . CLASSES_PATH);
 	$ws->paramSet('COMPILE_DIR', SITE_ROOT_DIR . COMPILE_PATH);
@@ -523,12 +527,13 @@ if (!defined('UPLOAD_ROOT')) {
 // Analyse Params and access control
 // ====================================
 
-	if ($ws->connected() and ($ws->connected_id() <> $ws->paramGet('USER_GUEST'))) {
-		$ws->addjs($ws->paramGet('RELA_CKEDITOR_JS_DIR') . $ws->paramGet('CKEDITOR_JS_FILE'), false);
-	}
 	$connect = new object_connect();
 	if (!$ws->connected() and ($ws->paramGet('USER_GUEST') <> "")) {
 		$connect->connectGuest($ws->paramGet('USER_GUEST'));
+	}
+
+	if ($ws->userConnected()) {
+		$ws->addjs($ws->paramGet('RELA_CKEDITOR_JS_DIR') . $ws->paramGet('CKEDITOR_JS_FILE'), false);
 	}
 
 	// Analyse Param
@@ -677,7 +682,7 @@ if (!defined('UPLOAD_ROOT')) {
 
 	// Image path initialization
 	if (!defined('APP_IMAGES_PATH')) {
-		define('APP_IMAGES_PATH', RELA_PATH . IMAGES_PATH);
+		define('APP_IMAGES_PATH', RELA_PATH . IMAGES_PATH . $ws->paramGet('APP_NAME'). '/');
 	}
 	$ws->paramSet('APP_IMAGES_PATH', APP_IMAGES_PATH);
 

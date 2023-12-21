@@ -42,7 +42,8 @@ $wlist->pageSet(true);
 $wlist->pagesizeSet(15, 25, 50); /* set number of lines for the list */
 $wlist->pagesearchSet(true); /* show search input and button */
 $wlist->pageorderSet(4); /* number of order type */
-$wlist->displaysizeSet('large'); /* set list width */
+//$wlist->displaysizeSet('large'); /* set list width */
+$wlist->displaysizeSet('small'); /* set list width */
 $wlist->columnidSet(false); /* show id column */
 
 $wlist->sortSet(true); /* show or not the sort of columns. False by default */

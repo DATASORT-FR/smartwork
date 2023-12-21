@@ -34,7 +34,13 @@
 	<div class="list-block-header">
 		<div class="row param-container">
 		
-			<div class="col-lg-8">
+			{if $btheadernb == 0}
+				<div class="col-lg-10">
+			{elseif $btheadernb == 1}
+				<div class="col-lg-8">
+			{elseif $btheadernb == 2}
+				<div class="col-lg-6">
+			{/if}
 				{if $searchflag}
 					<div class="input-group search mb-2">
 						<button class="btn btn-primary bt-search" event="{$btsearch.ref}" rel="nofollow"> 
@@ -113,19 +119,40 @@
 				{/if}
 			</div>
 			
-			<div class="col-lg-2">
-				{if $btnew.flag}
-					<div class="listbutton mb-2">
-						{if $pageflag}
-							<button type="button" class="btn btn-primary l_linknew" data-loadingtext="{#Txt_loading#}" event="{$btnew.ref}" rel="nofollow">
-						{else}
-							<button type="button" class="btn btn-primary lc_linknew" data-loadingtext="{#Txt_loading#}" event="{$btnew.ref}" rel="nofollow">
-						{/if}
-							<span class="fa fa-{$btnew.icon}" width="16" height="16"></span> 
-						{#Bt_list_new#}</button>
-					</div>
+			{if $btheadernb > 0}
+				{if $btheadernb == 1}
+					<div class="col-lg-2">
+				{elseif $btheadernb == 2}
+					<div class="col-lg-4">
 				{/if}
-			</div>
+					<div class="listbutton mb-2">
+						{if $btnew.flag}
+							{if $pageflag}
+								<button type="button" class="btn btn-primary l_linknew" data-loadingtext="{#Txt_loading#}" event="{$btnew.ref}" rel="nofollow">
+							{else}
+								<button type="button" class="btn btn-primary lc_linknew" data-loadingtext="{#Txt_loading#}" event="{$btnew.ref}" rel="nofollow">
+							{/if}
+								{if $btnew.icon != ''}
+									<span class="fa fa-{$btnew.icon}" width="16" height="16"></span> 
+								{/if}
+								{#Bt_list_new#}
+							</button>
+						{/if}
+						{if $btlink.flag}
+							{if $pageflag}
+								<button type="button" class="btn btn-primary l_linknew" data-loadingtext="{#Txt_loading#}" event="{$btlink.ref}" rel="nofollow">
+							{else}
+								<button type="button" class="btn btn-primary lc_linknew" data-loadingtext="{#Txt_loading#}" event="{$btlink.ref}" rel="nofollow">
+							{/if}
+								{if $btlink.icon != ''}
+									<span class="fa fa-{$btlink.icon}" width="16" height="16"></span> 
+								{/if}
+								{$btlink.text}
+							</button>
+						{/if}
+					</div>
+				</div>
+			{/if}
 		</div>
 		
 		<div id="{$htmlid}_filter-container" class="row filter-container collapse">

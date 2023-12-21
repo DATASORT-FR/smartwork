@@ -1,0 +1,66 @@
+Txt_app_title=Smartwork : Application par défaut
+Txt_page_title=Page de l'application par défaut
+
+# Template
+Txt_title_contentside=Articles
+Txt_title_filesside=Fiches
+Txt_bt_filesside=Toutes les fiches
+
+# Article
+Txt_read_more=Lire la suite
+Txt_return_page=Retour
+
+# Main Menu
+menu_home_text=Accueil
+menu_account_text=Mon compte
+menu_login_text=Connexion
+Txt_menu_jf_main_article_2=Notre projet
+Txt_menu_jf_main_article_3=A propos
+Txt_menu_jf_main_blog=Blog
+Txt_menu_jf_main_landing=Landing pages
+Txt_menu_jf_main_admin=Administrateur
+Txt_menu_jf_main_visitors=Fréquentation
+
+# Footer Menu
+Txt_menu_jf_footer_conditions=Conditions générales
+Txt_menu_jf_footer_confidentialite=Confidentialité
+Txt_menu_jf_footer_contact=Contactez nous
+Txt_menu_jf_footer_metiers=Fiches
+
+# Login form
+Lbl_login_login=Login
+Lbl_login_Password=Password
+Txt_login_login_placeholder=Utilisateur
+Txt_login_password_placeholder=Mot de passe
+
+# Contact form
+Lbl_contact_name='Nom : '
+Lbl_contact_email='Email : '
+Lbl_contact_phone='Téléphone : '
+Lbl_contact_message='Message : '
+
+Txt_contact_error="Une erreur s'est produite lors de l'enregistrement de votre message"
+Txt_contact_ok="Votre message a bien été envoyé"
+Bt_contact_valider="Valider"
+
+Txt_control_name='Vous devez saisir un nom'
+Txt_control_phone='Vous devez saisir un N° de téléphone'
+Txt_control_message='Votre message ne doit pas être vide'
+
+Title_contact_validation="Message envoyé"
+
+# Mail Contact
+Mail_contact_subject="Demande de contact"
+Mail_contact_txt="
+Une demande de contact a été faite sur le site 'Default'\r\n
+Nom : [name]\r\n
+Email : [email]\r\n
+Téléphone : [phone]\r\n
+Message (ci-dessous) : \r\n
+[message]
+"
+
+Mail_contact_html="
+<p>Une demande de contact a été faite sur le site 'Default'
+</p>
+"

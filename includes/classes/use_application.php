@@ -43,13 +43,11 @@ class object_application extends BUS_object
     public function __construct()
     {
 		$this->nameSet(get_class());
-//		$this->idSet('id');
-//		$this->selectLabelFieldSet('title');
 		$this->selectLabelFieldSet('label');
 
 		/* Table structure for the object */
 		$this->tableSet('adm_application');
-		$this->joinTableSet('adm_apptype', 'id','adm_application','apptype_id');
+		$this->joinTableSet('adm_apptype', 'code','adm_application','apptype');
 
 		$this->fieldTableSet('id');
 		$this->fieldTableSet('code');
@@ -65,6 +63,7 @@ class object_application extends BUS_object
 			'required' => true,
 			'size' => 50,
 			'case' => 'lower'));
+		$this->fieldTableSet('dir');
 		$this->fieldTableSet('copy_code');
 		$this->fieldAttrSet('copy_code', 'string', array(
 			'size' => 10,
@@ -73,16 +72,19 @@ class object_application extends BUS_object
 		$this->fieldAttrSet('copy_name', 'string', array(
 			'size' => 50,
 			'case' => 'lower'));
-		$this->fieldTableSet('flag_archive');
-		$this->fieldAttrSet('flag_archive', 'boolean');
-		$this->fieldTableSet('date_archive');
+		$this->fieldTableSet('copy_content');
+		$this->fieldAttrSet('copy_content', 'boolean');
+		$this->fieldTableSet('flag_admin');
+		$this->fieldAttrSet('flag_admin', 'boolean');
+		$this->fieldTableSet('date_export');
+		$this->fieldTableSet('date_import');
 		$this->fieldTableSet('label');
 		$this->fieldAttrSet('label', 'string', array(
 			'size' => 50));
 		$this->fieldTableSet('description');
 		$this->fieldAttrSet('description', 'text');
-		$this->fieldTableSet('apptype_id');
-		$this->fieldTableSet('apptype', 'adm_apptype', 'code');
+		$this->fieldTableSet('apptype');
+		$this->fieldTableSet('version');
 		$this->fieldTableSet('keywords');
 		$this->fieldAttrSet('keywords', 'text');
 		$this->fieldTableSet('canonical');
@@ -106,6 +108,7 @@ class object_application extends BUS_object
 		$this->fieldTableSet('image');
 		$this->fieldAttrSet('image', 'string', array(
 			'size' => 50));
+		$this->fieldTableSet('parameters');
 		$this->fieldCompoSet('title', 'append', 'code');
 		$this->fieldCompoSet('title', 'append', ' - ');
 		$this->fieldCompoSet('title', 'append', 'label');
@@ -123,7 +126,7 @@ class object_application extends BUS_object
 	}
 
 	/**
-	* update status to archive
+	* update flag to export
 	*
 	* @param integer - object identifier to update
 	*
@@ -135,28 +138,40 @@ class object_application extends BUS_object
 	*
     * @access public
 	*/
-    public function procArchive($id)
+    public function procExport($appId)
     {
-		/**
-		* function intialization
-		*/
+		$traitFlag = true;
+		$argArray = array();
+		$appArray = array();
+
 		$ws = workspace::ws_open();
 		$fct_return = new Return_function;
 		$ws->logSys('debug', 'Object Display for ' . $this->nameGet(), __CLASS__, func_get_args(), 'arguments');
 
+		$tbAppCible = new Smart_select('adm_application');
+		$tbAppCible->fieldAll();
+		$tbAppCible->whereSet('id', $appId);
+		$appArray = $tbAppCible->find();
+		if (empty($appArray)) {
+			$traitFlag = false;
+		}
+
 		try {
-			/**
-			* function processing by using smartorm
-			*/
-			$argArray = array();
-			$argArray['id'] = $id;
-			$argArray['flag_archive'] = 1;
-			$this->update($argArray);
-			$line = array();
-			$line['id'] = $id;
-			$fct_return->returnSet($line);
-			$ws->logSys('debug', 'function OK for ' . $this->nameGet(), __CLASS__, $fct_return->returnGet(),'results');
-			$this->Msg('archivePending','OK', $argArray);
+			$argArray['id'] = $appId;
+			$argArray['flag_admin'] = 5;
+			if ($traitFlag) {
+				$this->update($argArray);
+				$line = array();
+				$line['id'] = $appId;
+				$fct_return->returnSet($line);
+				$ws->logSys('debug', 'function OK for ' . $this->nameGet(), __CLASS__, $fct_return->returnGet(),'results');
+				$this->Msg('exportPending','OK', $appArray);
+			}
+			else {
+				$fct_return->errorSet();
+				$ws->logSys('error', 'function KO for ' . $this->nameGet(), __CLASS__);
+				$this->Msg('not-exist','KO', $argArray);
+			}
 		}
 		catch (exception $e) {
 			/**
@@ -164,7 +179,115 @@ class object_application extends BUS_object
 			*/
 			$fct_return->errorSet();
 			$ws->logSys('error', 'function KO for ' . $this->nameGet() . " " . $e->getCode() . " : " . $e->getMessage(), __CLASS__);
-			$this->Msg('archivePending','KO', $argArray);
+			$this->Msg('exportPending','KO', $appArray);
+		}		
+		return $fct_return;
+	}
+
+	/**
+	* insert App to import
+	*
+	* @param string - archive name
+	*        string - app target name
+	*        string - app target code
+	*
+	* @return object return_function
+	*         status : boolean
+	*           + true : no error
+	*           + false : error
+    *         return : array of informations 
+	*
+    * @access public
+	*/
+    public function procImport($appSource, $appName, $appCode, $copyContent)
+    {
+		$traitFlag = false;
+		$argArray = array();
+		$appArray = array();
+		$importArray = array();
+	
+		$ws = workspace::ws_open();
+		$fct_return = new Return_function;
+		$ws->logSys('debug', 'Object Display for ' . $this->nameGet(), __CLASS__, func_get_args(), 'arguments');
+		
+		$importFile = SITE_ROOT_DIR . ARCHIVE_PATH . $appSource . '/application.json';
+		if (file_exists($importFile)) {
+			$importArray = jsonRead($importFile);
+			if (isset($importArray['application'])) {
+				$appArray = $importArray['application'];
+				$traitFlag = true;
+			}
+		}
+		if ($traitFlag) {
+			if (!empty($appName)) {
+				$appArray['name'] = $appName;
+			}
+			if (!empty($appCode)) {
+				$appArray['code'] = $appCode;
+			}
+			$appArray['dir'] = $appArray['name'];
+			if (file_exists(SITE_ROOT_DIR . APPS_PATH . $appArray['dir'])) {
+				$traitFlag = false;
+			}
+		}
+
+		if ($traitFlag) {
+			$tbAppCible = new Smart_select('adm_application');
+			$tbAppCible->fieldAll();
+			$tbAppCible->whereSet('code', $appArray['code']);
+			$tbAppCible->whereSet('name', $appArray['name']);
+			$appCible = $tbAppCible->find();
+			if (!empty($appCible)) {
+				$traitFlag = false;
+			}
+		}
+		
+		try {
+			if ($traitFlag) {
+				$argArray['code'] = $appArray['code'];
+				$argArray['name'] = $appArray['name'];
+				$argArray['dir'] = $appArray['dir'];
+				$argArray['copy_code'] = '';
+				$argArray['copy_name'] = $appSource;
+				$argArray['copy_content'] = $copyContent;
+				$argArray['flag_admin'] = 7;
+				$argArray['status_id'] = -1;
+				$argArray['version'] = $appArray['version'];
+				$argArray['label'] = $appArray['label'];
+				$argArray['description'] = $appArray['description'];
+				$argArray['apptype'] = $appArray['apptype'];
+				$argArray['image'] = $appArray['image'];
+				$argArray['public'] = $appArray['public'];
+				$argArray['url_root'] = $appArray['url_root'];
+				$argArray['canonical'] = $appArray['canonical'];
+				$argArray['keywords'] = $appArray['keywords'];
+				$argArray['parameters'] = $appArray['parameters'];
+				$argArray['content_page'] = $appArray['content_page'];
+				$argArray['forum_subject_page'] = $appArray['forum_subject_page'];
+				$argArray['forum_topic_page'] = $appArray['forum_topic_page'];
+
+				$tbAppCible = new Smart_record('adm_application');
+				$tbAppCible->fieldAll($argArray);
+				$appCibleId = $tbAppCible->insert();
+				$line = array();
+				$line['id'] = $appCibleId;
+				$fct_return->returnSet($line);
+				$ws->logSys('debug', 'function OK for ' . $this->nameGet(), __CLASS__, $fct_return->returnGet(),'results');
+				$this->Msg('importPending','OK', $appArray);
+			}
+			else {
+				$fct_return->errorSet();
+				$ws->logSys('error', 'function KO for ' . $this->nameGet(), __CLASS__);
+				$this->Msg('exist','KO', $appArray);
+			}
+		}
+		catch (exception $e) {
+			/**
+			* function error processing
+			*/
+			$fct_return->errorSet();
+			$ws->logSys('error', 'function KO for ' . $this->nameGet() . " " . $e->getCode() . " : " . $e->getMessage(), __CLASS__);
+			$this->Msg('importPending','KO', $appArray);
 		}		
 		return $fct_return;
 	}
@@ -182,28 +305,41 @@ class object_application extends BUS_object
 	*
     * @access public
 	*/
-    public function procDelete($id)
+    public function procDelete($appId)
     {
-		/**
-		* function intialization
-		*/
+		$traitFlag = true;
+		$argArray = array();
+		$appArray = array();
+		
 		$ws = workspace::ws_open();
 		$fct_return = new Return_function;
 		$ws->logSys('debug', 'Object Display for ' . $this->nameGet(), __CLASS__, func_get_args(), 'arguments');
 
+		$tbAppCible = new Smart_select('adm_application');
+		$tbAppCible->fieldAll();
+		$tbAppCible->whereSet('id', $appId);
+		$appArray = $tbAppCible->find();
+		if (empty($appArray)) {
+			$traitFlag = false;
+		}
+
 		try {
-			/**
-			* function processing by using smartorm
-			*/
-			$argArray = array();
-			$argArray['id'] = $id;
+			$argArray['id'] = $appId;
+			$argArray['flag_admin'] = 6;
 			$argArray['status_id'] = -1;
-			$this->update($argArray);
-			$line = array();
-			$line['id'] = $id;
-			$fct_return->returnSet($line);
-			$ws->logSys('debug', 'function OK for ' . $this->nameGet(), __CLASS__, $fct_return->returnGet(),'results');
-			$this->Msg('deletePending','OK', $argArray);
+			if ($traitFlag) {
+				$this->update($argArray);
+				$line = array();
+				$line['id'] = $appId;
+				$fct_return->returnSet($line);
+				$ws->logSys('debug', 'function OK for ' . $this->nameGet(), __CLASS__, $fct_return->returnGet(),'results');
+				$this->Msg('deletePending','OK', $appArray);
+			}
+			else {
+				$fct_return->errorSet();
+				$ws->logSys('error', 'function KO for ' . $this->nameGet(), __CLASS__);
+				$this->Msg('not-exist','KO', $argArray);
+			}
 		}
 		catch (exception $e) {
 			/**
@@ -211,7 +347,7 @@ class object_application extends BUS_object
 			*/
 			$fct_return->errorSet();
 			$ws->logSys('error', 'function KO for ' . $this->nameGet() . " " . $e->getCode() . " : " . $e->getMessage(), __CLASS__);
-			$this->Msg('deletePending','KO', $argArray);
+			$this->Msg('deletePending','KO', $appArray);
 		}		
 		return $fct_return;
 	}

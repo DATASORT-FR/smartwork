@@ -14,7 +14,7 @@
 defined('_WSEXEC') or die();
 
 $wlogin = new wlogin();
-$ws->assign('IncConnect',$wlogin->displayConnect('vertical', false));
+$ws->assign('IncConnect',$wlogin->displayConnect('inline', true, false, './'));
 $ws->build('login.tpl');
 
 ?>

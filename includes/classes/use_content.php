@@ -37,9 +37,11 @@ class object_content extends BUS_object
 		$this->tableSet('tb_content','cms_content');
 		$this->tableSet('tb_status','cms_status');
 		$this->tableSet('tb_category','cms_category');
+		$this->tableSet('tb_application','adm_application');
 		
 		$this->joinTableSet('tb_status', 'id','tb_content','status_id');
 		$this->joinTableSet('tb_category', 'id','tb_content','category_id');
+		$this->joinTableSet('tb_application', 'id','tb_content','application_id');
 
 		$this->fieldTableSet('id');
 		$this->fieldTableSet('date_creation');
@@ -49,6 +51,7 @@ class object_content extends BUS_object
 		$this->fieldAttrSet('date_update', 'date', array(
 			'auto' => true));
 		$this->fieldTableSet('application_id');
+		$this->fieldTableSet('application','tb_application','name');
 		$this->fieldTableSet('code');
 		$this->fieldAttrSet('code', 'string', array(
 			'size' => 10,
@@ -274,9 +277,15 @@ class object_content extends BUS_object
 			$tb_category=$tb_content->joinSet('category_id', 'cms_category', 'id');
 			$tb_category->fieldSet('code', 'category');
 			
-			$return = $tb_content->find();			
-			$fct_return->returnSet($return);
-			$ws->logSys('debug', 'Display content ok', __CLASS__, $fct_return->returnGet(),'results');
+			$return = $tb_content->find();	
+			if (!empty($return)) {
+				$fct_return->returnSet($return);
+				$ws->logSys('debug', 'Display content ok', __CLASS__, $fct_return->returnGet(),'results');
+			}
+			else {
+				$fct_return->errorSet();
+				$ws->logSys('error', 'Record not found for ' . $contentCode, __CLASS__);
+			}
 		}
 		catch (exception $e) {
 			/**

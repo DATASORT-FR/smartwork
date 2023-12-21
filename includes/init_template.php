@@ -15,5 +15,5 @@ defined('_WSEXEC') or die();
 header( 'content-type: text/html; charset=utf-8' );
 $wlogin = new wlogin();
 
-$ws->assign('IncConnect',$wlogin->displayConnect());
+$ws->assign('IncConnect',$wlogin->displayConnect('inline', true, false, './'));
 $ws->assign('IncApps',$wlogin->displayApps());	

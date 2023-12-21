@@ -42,8 +42,11 @@
 			{$labelSizeSm = 12}
 			{$inputSizeSm = 12}
 			{if $col == 3}
-				<div class="clearfix hidden-xs-down hidden-md-up">
-				</div>
+				{if $labelSizeLg != 0}
+					<div class="clearfix d-block d-lg-none">
+						<br>
+					</div>
+				{/if}
 			{/if}
 			{if $labelSizeLg != 0}
 				{if $field.collabelflag and $field.collabel != ''}

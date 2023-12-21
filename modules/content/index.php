@@ -149,10 +149,27 @@ class Wcontent
 			foreach($matches[1] as $key => $match) {
 				$hrefArray= array();
 				$hrefArray = explode(',', $match);
+				if (empty($hrefArray[0])) {
+					$hrefArray[0] = $ws->paramGet('APP_CODE');
+				}
 				$href = call_user_func_array(array($connect, 'constructHref'), $hrefArray);
 				$contentIntro = preg_replace('#\[href:' . $match . '\]#isU', $href, $contentIntro);
 			}
 		}
+
+		preg_match_all('#\[href:(.*)\]#isU', $contentContent, $matches);
+		if (isset($matches[1])) {
+			foreach($matches[1] as $key => $match) {
+				$hrefArray= array();
+				$hrefArray = explode(',', $match);
+				if (empty($hrefArray[0])) {
+					$hrefArray[0] = $ws->paramGet('APP_CODE');
+				}
+				$href = call_user_func_array(array($connect, 'constructHref'), $hrefArray);
+				$contentContent = preg_replace('#\[href:' . $match . '\]#isU', $href, $contentContent);
+			}
+		}
+
 		$contentLink = $connect->constructHref($ws->paramGet('APP_CODE'), 'id:' .  $contentId);
 		$contentLinkEdit = $connect->constructHref($ws->paramGet('APP_CODE'), "admcontent", "module:" . $ws->paramGet('WCONTENT_NAME'), 'command:edit', 'id:' .  $contentId, 'code:' .  $code);
 		$contentLinkDelete = $connect->constructHref($ws->paramGet('APP_CODE'), "admcontent", "module:" . $ws->paramGet('WCONTENT_NAME'), 'command:delete', 'id:' .  $contentId);

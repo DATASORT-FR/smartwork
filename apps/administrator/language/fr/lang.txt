@@ -3,7 +3,7 @@ menu_home_text='Accueil'
 Lbl_flag_0='Privé'
 Lbl_flag_1='Publique'
 
-# content Objet
+# Admin Action
 [admaction]
 admactionTitle='Actions'
 Lbl_clearcache='Effacer tout le cache smarty'
@@ -169,17 +169,22 @@ Lbl_application_forum_topic_page="Page discussion : "
 Lbl_application_public="Accés : "
 Lbl_application_public_1='Privé'
 Lbl_application_public_2='Publique'
+Lbl_application_version="Version : "
 Lbl_application_description="Description : "
-Lbl_application_apptype_id="Modèle : "
+Lbl_application_apptype="Modèle : "
 Lbl_application_keywords="Mots clefs : "
 Lbl_application_image="Image : "
-Txt_application_bt_archive='Archiver'
+Txt_application_bt_rename='Renommer'
+Txt_application_bt_export='Exporter'
+Txt_application_bt_delete='Supp.'
+Txt_application_bt_copy='Copier'
+
 Title_application_bt_archive='Archivage de '
 Msg_application_bt_archive='Confimez-vous l'archivage ?'
-Txt_application_bt_delete='Supprimer'
+Title_application_bt_export='Export de '
+Msg_application_bt_export='Confimez-vous l'export ?'
 Title_application_bt_delete='Suppression de '
 Msg_application_bt_delete='Confimez-vous la suppression ?'
-Txt_application_bt_copy='Copier'
 
 # application_ref Objet
 [application_ref]
@@ -202,12 +207,65 @@ Lbl_application_ref_feature_id="Fonctionnalité : "
 Lbl_application_ref_ref="Référence : "
 Lbl_application_ref_alias="Alias : "
 
-# application_copy Objet
+# application Copy
 [application_copy]
 Title_application_copy='Application'
 Title_crud_edit = 'Copier l'application '
 Lbl_application_copy_copy_code='Code cible : '
 Lbl_application_copy_copy_name='Nom cible : '
+Lbl_application_copy_copy_content="Contenu : "
+Lbl_application_copy_copy_content_1='Non'
+Lbl_application_copy_copy_content_2='Oui'
+
+# application Rename
+[application_rename]
+Title_application_rename='Application'
+Title_crud_edit = 'Renommer l'application '
+Lbl_application_rename_copy_code='Nouveau code : '
+Lbl_application_rename_copy_name='Nouveau nom : '
+
+# Application Import
+[application_import]
+Title_application_import='Importer une application'
+Lbl_application_import_source='Nom : '
+Lbl_application_import_name='Nom cible : '
+Lbl_application_import_code='Code cible : '
+Lbl_application_import_copy_content="Contenu : "
+Lbl_application_import_copy_content_1='Non'
+Lbl_application_import_copy_content_2='Oui'
+Bt_application_import='Importer'
+
+# task Objet
+[task]
+Title_list="Tâches"
+header_list_1='Opération';
+header_list_2='Nom';
+header_list_3='Statut';
+header_list_4='Date';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' tâches trouvées'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression de la tâche"
+Lbl_delete="Voulez-vous supprimer cette tâche ?"
+Title_crud_edit = "Tâche : "
+Title_crud_new = "Création tâche "
+Title_task="Tâches"
+Lbl_task_type_id="Type : "
+Lbl_task_type="Type : "
+Lbl_task_operation_id="Opération : "
+Lbl_task_operation="Opération : "
+Lbl_task_status="Statut : "
+Lbl_task_date_status="Date : "
+Lbl_task_date_creation="Date : "
+Lbl_task_code="Code : "
+Lbl_task_name="Nom : "
+Lbl_task_status_id='Statut : '
+Lbl_task_source_id='Source : '
+Lbl_task_target_id='Cible : '
+Lbl_task_parameters='Paramètres : '
+Title_task_bt_delete='Suppression de '
+Msg_task_bt_delete='Confimez-vous la suppression ?'
 
 # content Objet
 [admcontent]
