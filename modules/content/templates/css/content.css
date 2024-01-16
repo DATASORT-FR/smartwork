@@ -1,0 +1,84 @@
+/**
+* Content module : css
+*
+* @package    module_content
+* @subpackage controller
+* @version    1.2
+* @date       20 Décembre 2017
+* @author     Alain VANDEPUTTE
+* @copyright  datasort.fr
+*/
+
+/* Content */
+.content_btn,
+.article_intro,
+.article_info,
+.article_content,
+.article_footer {
+	width: 100%;
+}
+
+article h2,
+.article_intro,
+.article_content,
+.article_footer {
+	margin-top:0.3rem;
+}
+
+.article_content,
+.article_footer {
+	float: left;
+}
+
+.content_btn {
+	text-align: right;
+	display: inline-block;
+}
+
+.article_info {
+	float: left;
+}
+
+.article_info small {
+	margin-right: 0.3rem;	
+}
+
+.article_intro .begin,
+.article_info .begin {
+	float: left;
+}
+
+.article_intro .end,
+.article_info .end {
+	float: right;
+}
+
+.content-update .bt-close,
+.content-update .bt-reset,
+.content-update .bt-event,
+.content_btn .btn {
+	margin-bottom: 0.3rem;
+}
+
+.article_intro .container_img {
+	text-align: center;
+	padding: 0.15rem;
+}
+
+.article_intro .container_img>div {
+	display: inline-block;
+}
+
+.article_intro .intro_img,
+.article_intro .intro_img>img {
+	width:100%;
+}
+
+.intro_img {
+	text-align:center;
+}
+
+.intro_img img {
+	width: 100%;
+	max-width: 35rem;
+}

@@ -1,0 +1,172 @@
+.block-ws::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.extra-position {
+	position: absolute;
+}
+
+.box-model {
+	min-width: 950px;
+	min-height: 554px;
+}
+
+.subbox-model {
+	min-width: 900px;
+	min-height: 520px;
+}
+
+.confirm-box,
+.box-confirm {
+	min-width: 400px;
+}
+
+.extra-box {
+	overflow: hidden;
+	background-color: #fbfbfb;
+	border: solid 1px;
+    border-color: lightgrey;
+	z-index: 10000;
+	box-shadow: 1px 1px 12px #555;
+}
+
+.extra-box .page-header span {
+	margin:0;
+}
+
+.extra-box .page-header {
+}
+
+.page-header>.extra-bt {
+	float: right;
+	margin-top: 1px;
+	margin-left: 1px;
+	padding: 5px;
+	border-radius: 0px;
+	background-color: #d6d6d6;
+	color: #000;
+	line-height: 12px;
+}
+
+.page-content {
+	padding-top: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 5px;
+	margin: 0;
+}
+
+.page-button {
+	padding-top: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 5px;
+	margin: 0;
+	overflow: hidden;
+}
+
+.extra-box .page-footer {
+	background-color: #fbfbfb;
+}
+
+.page-footer {
+	padding: 0;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	display:block;
+}
+
+.page-footer>span.page-sizable{
+	line-height: 10px;
+	font-size: 80%;
+	float: right;
+	margin: 0;
+}
+
+.height-60 {
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+}
+
+input.notvalidate,
+select.notvalidate,
+textarea.notvalidate {
+	border-color: red;
+}
+
+input.validate {
+	border-color: #66afe9;
+}
+
+/*=====================================*/
+/*          LIGHT EXTRA BOX            */
+/*=====================================*/
+.extra {
+	display: none;
+	position: fixed;
+	top: 180px;
+	left:0;
+	width:100%;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+.extra .box {
+	position: relative;
+	border-radius: 0.2rem;
+	border: 0.1rem solid #7F7F7F;
+	overflow: hidden;
+	max-width: 52rem;
+	margin: auto;
+	background-color : #fff;
+	padding: 1rem;
+	padding-top: 0.5rem;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(10px);
+	opacity:0.95;
+}
+
+.extra .box h1 {
+	border: none;
+	padding-bottom: 0.5rem;
+	box-shadow: 0 4px 4px -6px #333;
+}
+		
+.extra .box .intro {
+	padding-top: 0;
+	margin-top:0;
+	border: none;
+}
+	
+.extra .box .content {
+	padding-top: 1rem;
+}
+	
+.extra .box .main-content {
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding-bottom: 0.5rem;
+	padding-right:0.5rem;
+}
+		
+.extra .box .bt-exit {
+	position: absolute;
+	font-size: 2rem;
+	top: 0rem;
+	right: 0rem;
+}
+
+.extra .box .bt-exit .fa {
+	color: #1eb1df;
+}
+		
+.extra .box .button {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 2rem;
+}

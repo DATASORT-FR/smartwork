@@ -1,0 +1,13 @@
+.crud .div-control.input-paraph {
+/*
+	padding-left:2rem;
+*/
+	text-align:left;
+	width:100%;
+}
+
+.crud .div-control.input-paraph p,
+.crud .div-control.input-paraph ul,
+.crud .div-control.input-paraph div {
+	margin-bottom: 0.5rem;
+}

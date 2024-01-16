@@ -1,0 +1,129 @@
+#mediamanager_box {
+	position : fixed;
+}
+
+#mediamanager ul.thumbnails {
+	margin: 0;
+}
+
+#mediamanager .mediamanager_list {
+	padding: 0.3rem;
+	min-height: 6rem;
+	max-height: 18.6rem;
+	overflow: auto;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+#mediamanager .row {
+	margin-bottom: 1rem;
+}
+
+#mediamanager .list-inline-item {
+    width: auto;
+    height: auto;
+	min-width: 9rem;
+	text-align: center;
+	padding: 0.15rem;
+	border: 0.1rem solid;
+	border-color: #fff;	
+    margin-bottom: 0.5rem;
+}
+
+#mediamanager .list-inline-item:not(:last-child) {
+    margin-right: .5rem;
+}
+
+#mediamanager .list-inline-item.svg,
+#mediamanager .list-inline-item.png {
+	background-color: lightGrey;
+}
+
+#mediamanager .list-inline-item.active {
+	background-color: LightYellow ;
+	border-radius: .25rem;
+	border-color: lightgrey;	
+}
+
+#mediamanager .mouseover {
+	border-radius: .25rem;
+	border-color: lightgrey;	
+}
+
+#mediamanager .list-inline-item .far {
+	color: #025aa5;
+}
+
+#mediamanager .list-inline-item .fa.fa-file {
+	color: #025aa5;
+}
+
+#mediamanager .list-inline-item .fa.fa-folder {
+	color: #025aa5;
+}
+
+#mediamanager .mediamanager_path span {
+	margin:0;
+}
+
+#mediamanager .mediamanager_filename>div {
+	display: flex;
+}
+
+#mediamanager .mediamanager_filename input {
+	display: inline-block;
+	align-self: flex-start;	
+}
+
+#mediamanager .container_img_preview {
+	width: auto;
+	height: 6.3rem;
+	text-align: center;
+	padding: 0.15rem;
+	border: 0.1rem solid;
+	border-color: lightgrey;	
+	margin-left: 0.3rem;
+	margin-bottom: 0.3rem;
+	display: inline-block;
+}
+
+#mediamanager .container_img_preview>div {
+	display: inline-block;
+}
+
+#mediamanager .container_img_preview img {
+	max-width:12rem;
+	max-height: 6rem;
+}
+
+#mediaupload .form-control-file {
+	padding-top: .5rem;
+	padding-bottom: .5rem;
+}
+
+#mediamanager_button_parent,
+#mediamanager_button_reset {
+    margin-left: 0;
+	line-height: 1.3;
+    border-bottom-left-radius: unset;
+    border-top-left-radius: unset;
+}
+#mediamanager_button_parent {
+    border-bottom-right-radius: unset;
+    border-top-right-radius: unset;
+}
+
+#medianewdir_box,
+#mediaupload_box,
+#mediarename_box {
+	max-width: 45rem;
+}

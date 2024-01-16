@@ -1,0 +1,120 @@
+/**
+* Social module : css
+*
+* @package    module_social
+* @subpackage controller
+* @version    1.2
+* @date       20 Décembre 2017
+* @author     Alain VANDEPUTTE
+* @copyright  datasort.fr
+*/
+
+/* Content */
+
+ul.social_share_list {
+	padding-left:0;
+	list-style: none;
+	display:inline-block;
+	margin-top:0.5rem;
+	margin-bottom:0;
+	float: right;
+}
+
+li.social_share_item {
+	float: left;
+	margin-right: 0.3rem;
+	margin-bottom: 0.5rem;
+}
+
+div.social_list a.no_square.link_facebook,
+li.social_share_item.no_square.link_facebook {
+	background-color: #4769a5;
+}
+
+div.social_list a.no_square.link_twitter,
+li.social_share_item.no_square.link_twitter {
+	background-color: #65ccef;
+}
+
+div.social_list a.no_square.link_google,
+li.social_share_item.no_square.link_google {
+	background-color: #ea4335;
+}
+
+div.social_list a.no_square.link_pinterest,
+li.social_share_item.no_square.link_pinterest {
+	background-color: #ea4335;
+}
+
+div.social_list a.no_square.link_linkedin,
+li.social_share_item.no_square.link_linkedin {
+	background-color: #2ba3e1;
+}
+
+div.social_list a.no_square.link_youtube,
+li.social_share_item.no_square.link_youtube {
+	background-color: #ea4335;
+}
+
+div.social_list a.no_square.link_feedburner,
+li.social_share_item.no_square.link_feedburner {
+	background-color: yellow;
+}
+
+div.social_list a.no_square,
+li.social_share_item.no_square a {
+	color: #fff;
+}
+
+div.social_list a.square,
+li.social_share_item.square {
+	background-color: none;
+}
+
+div.social_list a.square:hover,
+div.social_list a.square {
+	text-decoration:none;
+}
+
+div.social_list>a.square.link_facebook>span,
+li.social_share_item.square.link_facebook>a>span {
+	color: #4769a5;
+}
+
+div.social_list>a.square.link_twitter>span,
+li.social_share_item.square.link_twitter>a>span {
+	color: #65ccef;
+}
+
+div.social_list>a.square.link_google>span,
+li.social_share_item.square.link_google>a>span {
+	color: #ea4335;
+}
+
+div.social_list>a.square.link_pinterest>span,
+li.social_share_item.square.link_pinterest>a>span {
+	color: #ea4335;
+}
+
+div.social_list>a.square.link_linkedin>span,
+li.social_share_item.square.link_linkedin>a>span {
+	color: #2ba3e1;
+}
+
+div.social_list>a.square.link_youtube>span,
+li.social_share_item.square.link_youtube>a>span {
+	color: #ea4335;
+}
+
+div.social_list>a.square.link_feedburner>span,
+li.social_share_item.square.link_feedburner>a>span {
+	color: yellow;
+}
+
+div.social_list>a.square>span.fa {
+    margin-right: 0;
+}
+
+div.social_list>a.square {
+    margin-right: 0.7rem;
+}

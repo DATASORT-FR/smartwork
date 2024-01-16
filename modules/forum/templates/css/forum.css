@@ -1,0 +1,69 @@
+/**
+* Forum module : css
+*
+* @package    module_forum
+* @subpackage controller
+* @version    1.0
+* @date       03 January 2022
+* @author     Alain VANDEPUTTE
+* @copyright  datasort.fr
+*/
+
+.forum-breadcrumb {
+	margin-bottom: 1rem;
+}
+
+.forum .page-header {
+	background-color: transparent;
+}
+
+.forum .forum-btn {
+	display: inline-block;
+	width: 100%;
+}
+
+.forum .forum-list {
+	margin-top: 0.5rem;
+}
+
+.forum .forum-list caption {
+	font-weight: bold;
+	caption-side: top;
+}
+
+.forum .forum-list a {
+	display: inline-table;
+	width: 100%;
+}
+
+.forum .forum-list td {
+	padding : 0;;
+}
+
+.forum .forum-list .forum-resume {
+	float: left;
+	padding:0;
+	padding-top: 0.25rem;
+	padding-right: 0.75rem;
+	padding-bottom: 0.25rem;
+	padding-left: 0.25rem;
+}
+
+.forum .forum-list .forum-resume.vignette {
+	width: 4rem;
+	height: 4rem;
+	padding-left: 0.75rem;
+}
+
+.forum .forum-list .forum-resume.vignette img {
+	width: 3rem;
+	height: 3rem;	
+}
+
+.forum .forum-list tr:hover td {
+	background-color: LightBlue;
+}
+
+.forum .forum-subject-status {
+	text-align: right;
+}

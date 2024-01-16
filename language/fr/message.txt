@@ -1,0 +1,43 @@
+# Error Messages
+KO_001 = Une erreur technique a été rencontrée. Veuillez contactez l'administrateur.
+KO_010 = Le site est actuellement indisponible. Veillez nous excuser pour le désagrément.
+
+# User connexion Messages
+KO_100 = Informations de connexion incorrectes. Vous pouvez réessayer.
+KO_101 = [name] - '[code]' non trouvé.
+
+# Object administration Messages
+OK_110 = [name] - '[code]' a été supprimé.
+OK_111 = [name] - '[code]' a été créé.
+OK_112 = [name] - '[code]' a été modifié.
+OK_113 = [name] - '[code]' a été édité.
+OK_114 = [name] - '[code]' a été archivé.
+OK_115 = [name] - '[code]' a été copié.
+
+OK_119 = [name] - '[code]' a été traité avec succés.
+
+KO_110 = [name] - Impossible de supprimer '[code]'.
+KO_111 = [name] - Impossible de créer '[code]'.
+KO_112 = [name] - Impossible de modifier '[code]'.
+KO_113 = [name] - Impossible d'éditer '[code]'.
+KO_114 = [name] - Impossible d'archiver '[code]'.
+KO_115 = [name] - Impossible de copier '[code]'.
+KO_116 = [name] - La cible existe déjà '[code]'.
+KO_117 = [name] - La cible n'existe pas '[code]'.
+KO_119 = [name] - une erreur a été rencontré sur '[code]'.
+
+OK_120 = [name] - '[code]' est en attente de suppression.
+OK_121 = [name] - '[code]' est en attente de création.
+OK_122 = [name] - '[code]' est en attente de modification.
+OK_123 = [name] - '[code]' est en attente d'édition.
+OK_124 = [name] - '[code]' est en attente d'archivage.
+OK_125 = [name] - '[code]' est en attente d'importation.
+OK_126 = [name] - '[code]' est en attente d'exportation.
+
+KO_120 = [name] - Impossible de supprimer '[code]'.
+KO_121 = [name] - Impossible de créer '[code]'.
+KO_122 = [name] - Impossible de modifier '[code]'.
+KO_123 = [name] - Impossible d'éditer '[code]'.
+KO_124 = [name] - Impossible d'archiver '[code]'.
+KO_125 = [name] - Impossible d'importer '[code]'.
+KO_126 = [name] - Impossible d'exporter '[code]'.

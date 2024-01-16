@@ -1,0 +1,556 @@
+menu_home_text='Accueil'
+
+Lbl_flag_0='Privé'
+Lbl_flag_1='Publique'
+
+# Admin Action
+[admaction]
+admactionTitle='Actions'
+Lbl_clearcache='Effacer tout le cache smarty'
+Bt_clearcache='Effacer'
+
+# user object
+[admuser]
+Title_list='Utilisateurs'
+Lbl_list_orderby_0='Identifiant'
+Lbl_list_orderby_1='Nom'
+Lbl_list_orderby_2='Société'
+Lbl_list_orderby_3='Email'
+header_list_1='Id';
+header_list_2='Login';
+header_list_3='Statut';
+header_list_4='Nom';
+header_list_5='Prénom';
+header_list_6='Email';
+filter_list_status_id='Statut : '
+filter_list_source_id='Origine : '
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' utilisateurs trouvés'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression de l'utilisateur"
+Lbl_delete="Voulez-vous supprimer cet utilisateur ?"
+Title_crud_edit = ""
+Title_crud_new = "Création utilisateur"
+Title_admuser='Utilisateurs'
+Lbl_admuser_lastname='Nom : '
+Lbl_admuser_firstname='Prénom : '
+Lbl_admuser_email='Email : '
+Lbl_admuser_login='Login : '
+Lbl_admuser_password='Mot de passe : '
+Lbl_admuser_surname='Pseudo : '
+Lbl_admuser_source_id='Origine : '
+Txt_admuser_bt_add_pwd='Pass'
+Txt_admuser_bt_pwd='Mot de passe'
+Lbl_admuser_status_id='Statut : '
+Lbl_admuser_status_id_1='Inactif'
+Lbl_admuser_status_id_2='Actif'
+Lbl_admuser_partner_list='Partenaire : '
+Lbl_admuser_group_list='Groupes : '
+Lbl_admuser_password_1='Mot de passe : '
+Lbl_admuser_password_2='Confirmez : '
+
+[admuser_pwd]
+Title_crud_edit = 'Changer le mot de pase de '
+Title_crud_new = 'Initialiser le mot de pase '
+Title_admuser_pwd='Utilisateur'
+Lbl_admuser_pwd_password_1='Mot de passe : '
+Lbl_admuser_pwd_password_2='Confirmez : '
+
+# group Objet
+[admgroup]
+Title_list="Groupes"
+Lbl_list_orderby_0='Application'
+Lbl_list_orderby_1='Groupe'
+Lbl_list_orderby_2='Identifiant'
+header_list_1='Application';
+header_list_2='Groupe';
+header_list_3='Libellé';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' groupes trouvés'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression du groupe"
+Lbl_delete="Voulez-vous supprimer ce groupe ?"
+Title_crud_edit = "Groupe : "
+Title_crud_new = "Création groupe"
+Title_admgroup="Groupes"
+Lbl_admgroup_code="Code : "
+Lbl_admgroup_label="Libellé : "
+Lbl_admgroup_application_id="Application : "
+
+# group right Objet
+[admgroup_right]
+Title_list="Droits : "
+Lbl_list_orderby_0='feature'
+Lbl_list_orderby_1='Identifiant'
+header_list_1='Fonctionnalité';
+header_list_2='Module';
+header_list_3='Lecture';
+header_list_4='Création';
+header_list_5='Modif.';
+header_list_6='Supp.';
+header_list_7='Evénement';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' droits trouvés'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Droit pour la fonctionnalité/module"
+Lbl_delete="Voulez-vous supprimer ce droit ?"
+Title_crud_edit = "Droit : "
+Title_crud_new = "Création droit"
+Title_admgroup_right="Droits : "
+Lbl_admgroup_right_feature_id="Fonctionnalité : "
+Lbl_admgroup_right_module_id="Module : "
+Lbl_admgroup_right_right_read="Lecture : "
+Lbl_admgroup_right_right_read_1='Non'
+Lbl_admgroup_right_right_read_2='Oui'
+Lbl_admgroup_right_right_create="Création : "
+Lbl_admgroup_right_right_create_1='Non'
+Lbl_admgroup_right_right_create_2='Oui'
+Lbl_admgroup_right_right_update="Modification : "
+Lbl_admgroup_right_right_update_1='Non'
+Lbl_admgroup_right_right_update_2='Oui'
+Lbl_admgroup_right_right_delete="Suppression : "
+Lbl_admgroup_right_right_delete_1='Non'
+Lbl_admgroup_right_right_delete_2='Oui'
+Lbl_admgroup_right_right_event="Evénement : "
+Lbl_admgroup_right_right_event_1='Non'
+Lbl_admgroup_right_right_event_2='Oui'
+
+# partner Objet
+[admpartner]
+Title_list="Sociétés"
+Lbl_list_orderby_0='Code'
+Lbl_list_orderby_1='Nom'
+Lbl_list_orderby_2='Identifiant'
+header_list_1='Code';
+header_list_2='Nom';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' partenaires trouvés'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression du partenaire"
+Lbl_delete="Voulez-vous supprimer ce partenaire ?"
+Title_crud_edit = "Partenaire : "
+Title_crud_new = "Création partenaire"
+Title_admpartner="Sociétés"
+Lbl_admpartner_code="Code : "
+Lbl_admpartner_label="Nom : "
+
+# application Objet
+[admapplication]
+Title_list="Applications"
+Lbl_list_orderby_0='Code'
+Lbl_list_orderby_1='Libellé'
+Lbl_list_orderby_2='Identifiant'
+header_list_1='Code';
+header_list_2='Statut';
+header_list_3='Libellé';
+header_list_4='Publique';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' applications trouvées'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression de l'application"
+Lbl_delete="Voulez-vous supprimer cette application ?"
+Title_crud_edit = "Application : "
+Title_crud_new = "Création application"
+Title_admapplication="Applications"
+Lbl_admapplication_code="Code : "
+Lbl_admapplication_label="Libellé : "
+Lbl_admapplication_name="Nom : "
+Lbl_admapplication_status_id='Statut : '
+Lbl_admapplication_canonical="Url Canonique : "
+Lbl_admapplication_url_root="Url Root : "
+Lbl_admapplication_content_page="Page de contenu : "
+Lbl_admapplication_forum_subject_page="Page sujet : "
+Lbl_admapplication_forum_topic_page="Page discussion : "
+Lbl_admapplication_public="Accés : "
+Lbl_admapplication_public_1='Privé'
+Lbl_admapplication_public_2='Publique'
+Lbl_admapplication_version="Version : "
+Lbl_admapplication_description="Description : "
+Lbl_admapplication_apptype="Modèle : "
+Lbl_admapplication_keywords="Mots clefs : "
+Lbl_admapplication_image="Image : "
+Txt_admapplication_bt_rename='Renommer'
+Txt_admapplication_bt_export='Exporter'
+Txt_admapplication_bt_delete='Supp.'
+Txt_admapplication_bt_copy='Copier'
+
+Title_admapplication_bt_archive='Archivage de '
+Msg_admapplication_bt_archive='Confimez-vous l'archivage ?'
+Title_admapplication_bt_export='Export de '
+Msg_admapplication_bt_export='Confimez-vous l'export ?'
+Title_admapplication_bt_delete='Suppression de '
+Msg_admapplication_bt_delete='Confimez-vous la suppression ?'
+
+# application_ref Objet
+[admapplication_ref]
+Title_list="Application :"
+Lbl_list_orderby_0='Référence'
+Lbl_list_orderby_1='Fonctionnalité'
+header_list_1='Application';
+header_list_2='Fonctionnalité';
+header_list_3='Référence';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' références trouvées'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression de la référence : "
+Lbl_delete="Voulez-vous supprimer cette référence ?"
+Title_crud_edit = "Référence : "
+Title_crud_new = "Création référence"
+Title_admapplication_ref = "Application : "
+Lbl_admapplication_ref_feature_id="Fonctionnalité : "
+Lbl_admapplication_ref_ref="Référence : "
+Lbl_admapplication_ref_alias="Alias : "
+
+# application Copy
+[admapplication_copy]
+Title_admapplication_copy='Application'
+Title_crud_edit = 'Copier l'application '
+Lbl_admapplication_copy_copy_code='Code cible : '
+Lbl_admapplication_copy_copy_name='Nom cible : '
+Lbl_admapplication_copy_copy_content="Contenu : "
+Lbl_admapplication_copy_copy_content_1='Non'
+Lbl_admapplication_copy_copy_content_2='Oui'
+
+# application Rename
+[admapplication_rename]
+Title_admapplication_rename='Application'
+Title_crud_edit = 'Renommer l'application '
+Lbl_admapplication_rename_copy_code='Nouveau code : '
+Lbl_admapplication_rename_copy_name='Nouveau nom : '
+
+# Application Import
+[admapplication_import]
+Title_admapplication_import='Importer une application'
+Lbl_admapplication_import_source='Nom : '
+Lbl_admapplication_import_name='Nom cible : '
+Lbl_admapplication_import_code='Code cible : '
+Lbl_admapplication_import_copy_content="Contenu : "
+Lbl_admapplication_import_copy_content_1='Non'
+Lbl_admapplication_import_copy_content_2='Oui'
+Bt_admapplication_import='Importer'
+
+# task Objet
+[admtask]
+Title_list="Tâches"
+header_list_1='Opération';
+header_list_2='Nom';
+header_list_3='Statut';
+header_list_4='Date';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' tâches trouvées'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression de la tâche"
+Lbl_delete="Voulez-vous supprimer cette tâche ?"
+Title_crud_edit = "Tâche : "
+Title_crud_new = "Création tâche "
+Title_admtask="Tâches"
+Lbl_admtask_type_id="Type : "
+Lbl_admtask_type="Type : "
+Lbl_admtask_operation_id="Opération : "
+Lbl_admtask_operation="Opération : "
+Lbl_admtask_status="Statut : "
+Lbl_admtask_date_status="Date : "
+Lbl_admtask_date_creation="Date : "
+Lbl_admtask_code="Code : "
+Lbl_admtask_name="Nom : "
+Lbl_admtask_status_id='Statut : '
+Lbl_admtask_source_id='Source : '
+Lbl_admtask_target_id='Cible : '
+Lbl_admtask_parameters='Paramètres : '
+Title_admtask_bt_delete='Suppression de '
+Msg_admtask_bt_delete='Confimez-vous la suppression ?'
+
+# content Objet
+[admcontent]
+Title_list="Contenus"
+Lbl_list_orderby_0='Application'
+Lbl_list_orderby_1='Application/Code'
+Lbl_list_orderby_2='Application/Title'
+Lbl_list_orderby_3='Identifiant'
+header_list_1='Application';
+header_list_2='Code'
+header_list_3='Statut'
+header_list_4='Titre'
+filter_list_code='Code : '
+filter_list_application_id='Application : '
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' contenu(s) trouvé(s)'
+txt_list_caption_search_begin=" pour '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression du contenu"
+Lbl_delete="Voulez-vous supprimer ce contenu ?"
+Title_crud_edit = "Contenu : "
+Title_crud_new = "Création contenu"
+Title_admcontent="Contenus"
+Lbl_admcontent_title="Titre : "
+Lbl_admcontent_application_id="Application : "
+Lbl_admcontent_code="Code : "
+Lbl_admcontent_status_id="Statut : "
+Lbl_admcontent_status_id_1='Inactif'
+Lbl_admcontent_status_id_2='Actif'
+Lbl_admcontent_intro="Intro : "
+Lbl_admcontent_content="Contenu : "
+Lbl_admcontent_category_id="Catégorie : "
+Lbl_admcontent_description_id="Description : "
+Lbl_admcontent_keywords="Mots clefs : "
+Lbl_admcontent_tab1="Principal"
+Lbl_admcontent_tab2="Contenu"
+Lbl_admcontent_tab3="Divers"
+
+# content category Object
+[admcontent_category]
+Title_list="Catégories"
+Lbl_list_orderby_0='Code'
+Lbl_list_orderby_1='Application'
+Lbl_list_orderby_2='Identifiant'
+header_list_1='Application';
+header_list_2='Code';
+header_list_3='Parent';
+header_list_4='Statut';
+header_list_5='Libellé';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' catégories trouvées'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression de la catégorie"
+Lbl_delete="Voulez-vous supprimer cette catégorie ?"
+Title_crud_edit = "Catégorie : "
+Title_crud_new = "Création catégorie"
+Title_admcontent_category="Catégories"
+Lbl_admcontent_category_application_id="Application : "
+Lbl_admcontent_category_code="Code : "
+Lbl_admcontent_category_label="Libellé : "
+Lbl_admcontent_category_status_id="Statut : "
+Lbl_admcontent_category_status_id_1='Inactif'
+Lbl_admcontent_category_status_id_2='Actif'
+Lbl_admcontent_category_parent_id="Parent : "
+Lbl_admcontent_category_description="Description : "
+
+# feature Objet
+[admfeature]
+Title_list="Fonctionnalités"
+Lbl_list_orderby_0='Application'
+Lbl_list_orderby_1='Code'
+Lbl_list_orderby_2='Libellé'
+Lbl_list_orderby_3='Identifiant'
+header_list_1='Application';
+header_list_2='Code';
+header_list_3='Libellé';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' features trouvés'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression du feature"
+Lbl_delete="Voulez-vous supprimer ce feature ?"
+Title_crud_edit = "Fonctionnalité : "
+Title_crud_new = "Création fonctionnalité"
+Title_admfeature="Fonctionnalités"
+Lbl_admfeature_code="Code : "
+Lbl_admfeature_label="Libellé : "
+Lbl_admfeature_application_id="Application : "
+
+# menu Objet
+[admmenu]
+Title_list="Menus"
+Lbl_list_orderby_0='Code'
+Lbl_list_orderby_1='Application'
+Lbl_list_orderby_2='Identifiant'
+header_list_1='Application';
+header_list_2='Code';
+header_list_3='Libellé';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' menus trouvés'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression du menu"
+Lbl_delete="Voulez-vous supprimer ce menu ?"
+Title_crud_edit = "Menu : "
+Title_crud_new = "Création menu"
+Title_admmenu="Menus"
+Lbl_admmenu_application_id="Application : "
+Lbl_admmenu_code="Code : "
+Lbl_admmenu_label="Libellé : "
+
+# menu_feature Objet
+[admmenu_feature]
+Title_list = "Menu : "
+Lbl_list_orderby_0='Nom'
+Lbl_list_orderby_1='Fonctionnalité'
+Lbl_list_orderby_2='Identifiant'
+header_list_1='Nom';
+header_list_2='Fonctionnalité';
+header_list_3='Référence';
+header_list_4='Réf./Id Article';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' menu items trouvés'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Menu item : "
+Lbl_delete="Voulez-vous supprimer ce menu item ?"
+Title_crud_edit = "Menu item : "
+Title_crud_new = "Création menu item"
+Title_admmenu_feature = "Menu : "
+Lbl_admmenu_feature_level="Niveau : "
+Lbl_admmenu_feature_feature_id="Fonctionnalité : "
+Lbl_admmenu_feature_parent_id="Parent : "
+Lbl_admmenu_feature_name="Nom : "
+Lbl_admmenu_feature_ref="Référence : "
+Lbl_admmenu_feature_display="Condition d'affichage"
+Lbl_admmenu_feature_display_field="Champs : "
+Lbl_admmenu_feature_display_ope="Operateur : "
+Lbl_admmenu_feature_display_value="Valeur : "
+Lbl_admmenu_feature_content_id="Réf./Id Article : "
+Lbl_admmenu_feature_class="Classe : "
+Lbl_admmenu_feature_icon="Icône : "
+Lbl_admmenu_feature_icon_only="Pas de texte : "
+Lbl_admmenu_feature_page="Box : "
+Lbl_admmenu_feature_page_1='Non'
+Lbl_admmenu_feature_page_2='Oui'
+Lbl_admmenu_feature_infos="Informations"
+
+# module Objet
+[admmodule]
+Title_list="Modules"
+Lbl_list_orderby_01='Code'
+Lbl_list_orderby_1='Libellé'
+Lbl_list_orderby_23='Identifiant'
+header_list_1='Code';
+header_list_2='Libellé';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' modules trouvés'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression du module"
+Lbl_delete="Voulez-vous supprimer ce module ?"
+Title_crud_edit = "Module : "
+Title_crud_new = "Création module"
+Title_admmodule="Modules"
+Lbl_admmodule_code="Code : "
+Lbl_admmodule_label="Libellé : "
+
+# forum category Object
+[admforum_category]
+Title_list="Catégories de forum"
+Lbl_list_orderby_0='Séquence'
+Lbl_list_orderby_1='Nom'
+Lbl_list_orderby_2='Identifiant'
+header_list_1='Application';
+header_list_2='Nom';
+header_list_3='Libellé';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' catégories trouvées'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression de la catégorie de forum"
+Lbl_delete="Voulez-vous supprimer cette catégorie de forum ?"
+Title_crud_edit = "Catégorie de forum : "
+Title_crud_new = "Création catégorie de forum"
+Title_admforum_category="Catégories de forum"
+Lbl_admforum_category_application="Application : "
+Lbl_admforum_category_name="Nom : "
+Lbl_admforum_category_label="Libellé : "
+
+# forum subject Object
+[admforum_subject]
+Title_list="Sujets du forum"
+Lbl_list_orderby_0='Séquence'
+Lbl_list_orderby_1='Nom'
+Lbl_list_orderby_2='Identifiant'
+header_list_1='Catégorie';
+header_list_2='Nom';
+header_list_3='Statut';
+header_list_4='Libellé';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' sujets trouvés'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression du sujet"
+Lbl_delete="Voulez-vous supprimer ce sujet du forum ?"
+Title_crud_edit = "Sujet : "
+Title_crud_new = "Création sujet"
+Title_admforum_subject="Sujets du forum"
+Lbl_admforum_subject_application="Application : "
+Lbl_admforum_subject_name="Nom : "
+Lbl_admforum_subject_category_id="Catégorie : "
+Lbl_admforum_subject_status_id="Statut : "
+Lbl_admforum_subject_label="Libellé : "
+Lbl_admforum_subject_tab1="Principal"
+Lbl_admforum_subject_tab2="Contenu"
+Lbl_admforum_subject_tab3="SEO"
+Lbl_admforum_subject_tab4="Divers"
+Lbl_admforum_subject_vignette="Vignette : "
+Lbl_admforum_subject_image="Image : "
+Lbl_admforum_subject_content="Contenu : "
+Lbl_admforum_subject_alias="Alias : "
+Lbl_admforum_subject_description="Description : "
+Lbl_admforum_subject_keywords="Mots clefs : "
+Lbl_admforum_subject_alt="Texte lien : "
+Lbl_admforum_subject_icon="Icône : "
+Lbl_admforum_subject_class="Class : "
+
+# forum topic Object
+[admforum_topic]
+Title_list="Fils de discussion"
+Lbl_list_orderby_0='Date'
+Lbl_list_orderby_1='Libellé'
+Lbl_list_orderby_2='Identifiant'
+header_list_1='Sujet';
+header_list_2='Date';
+header_list_3='Auteur';
+header_list_4='Statut';
+header_list_5='Libellé';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' fils de discussion trouvés'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression du sujet"
+Lbl_delete="Voulez-vous supprimer ce fil de discussion ?"
+Title_crud_edit = "Sujet : "
+Title_crud_new = "Création fil de discussion"
+Title_admforum_topic="Fils de discussion"
+Lbl_admforum_topic_subject_id="Sujet : "
+Lbl_admforum_topic_reference="Référence auteur : "
+Lbl_admforum_topic_author="Auteur : "
+Lbl_admforum_topic_status_id="Statut : "
+Lbl_admforum_topic_ref_moderator="Référence modérateur : "
+Lbl_admforum_topic_moderator="Modérateur : "
+Lbl_admforum_topic_name="Nom : "
+Lbl_admforum_topic_label="Libellé : "
+Lbl_admforum_topic_description="Description : "
+
+# forum post Object
+[admforum_post]
+Title_list="Messages"
+Lbl_list_orderby_0='Date'
+Lbl_list_orderby_1='Libellé'
+Lbl_list_orderby_2='Identifiant'
+header_list_1='Discussion';
+header_list_2='Date';
+header_list_3='Auteur';
+header_list_4='Statut';
+header_list_5='Libellé';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' messages trouvés'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression du message"
+Lbl_delete="Voulez-vous supprimer ce message ?"
+Title_crud_edit = "Sujet : "
+Title_crud_new = "Création message"
+Title_admforum_post="Messages"
+Lbl_admforum_post_topic_id="Discussion : "
+Lbl_admforum_post_reference="Référence auteur : "
+Lbl_admforum_post_author="Auteur : "
+Lbl_admforum_post_status_id="Statut : "
+Lbl_admforum_post_ref_moderator="Référence modérateur : "
+Lbl_admforum_post_moderator="Modérateur : "
+Lbl_admforum_post_name="Nom : "
+Lbl_admforum_post_description="Description : "
+

@@ -1,0 +1,539 @@
+Txt_loading='Chargement...'
+
+Title_home='Accueil'
+
+Title_login='Connexion'
+Title_profil='Votre profil'
+Title_connexion="Se connecter"
+Title_connexion_undertitle="Vous avez déjà un compte"
+Title_inscription="S'inscrire"
+Title_inscription_undertitle="Vous n'avez pas encore de compte"
+
+Lbl_login_login='Login : '
+Lbl_login_name='Nom : '
+Lbl_login_surname='Pseudo : '
+Lbl_login_email='Email : '
+Lbl_login_password='Mot de passe : '
+Lbl_login_confirm='Confirmez : '
+Lbl_user_password='Mot de passe : '
+Lbl_user_confirm='Confirmez le : '
+
+Lbl_login_password_lost='Vous avez perdu votre mot de passe'
+Lbl_login_remember='Se souvenir de moi'
+
+Txt_login_login_placeholder='Login'
+Txt_login_surname_placeholder='Pseudo'
+Txt_login_email_placeholder='Email'
+Txt_login_password_placeholder='Mot de passe'
+Txt_login_login='Vous devez vous connecter'
+
+Bt_login_connect='Se connecter'
+Bt_login_logout='Se déconnecter'
+Bt_login_password='Mot de passe'
+Bt_login_inscription='Valider'
+Bt_login_password_lost='Valider'
+Bt_resend_validation='Renvoyer le mail de validation'
+
+Msg_login_password_lost="Un email de récupération vous a été envoyé." 
+Msg_login_account_error="Une erreur sur votre compte a été rencontrée"
+
+Title_history='Historique'
+
+# List Display
+Title_list='Liste'
+Lbl_list_search='Recherche avancée'
+Lbl_list_orderby='Trier par'
+Lbl_list_orderby_0='Filtre 0'
+Lbl_list_orderby_1='Filtre 1'
+Lbl_list_orderby_2='Filtre 2'
+Lbl_list_orderby_3='Filtre 3'
+Lbl_list_orderby_4='Filtre 4'
+Lbl_list_orderby_5='Filtre 5'
+Lbl_list_orderby_6='Filtre 6'
+Lbl_list_orderby_7='Filtre 7'
+Lbl_list_orderby_8='Filtre 8'
+Lbl_list_orderby_9='Filtre 9'
+Lbl_list_pagesize='Nb. par page'
+Bt_list_search='Recherche'
+Bt_list_search_txt='Recherche'
+Bt_list_search_advanced='Avancée'
+Bt_list_search_advanced_closed='Avancée'
+Bt_list_new='Nouveau'
+Bt_list_edit='Editer'
+Bt_list_delete='Supprimer'
+header_list_id='Id'
+header_list_1='Ent 1'
+header_list_2='Ent 2'
+header_list_3='Ent 3'
+header_list_4='Ent 4'
+header_list_5='Ent 5'
+header_list_6='Ent 6'
+header_list_7='Ent 7'
+header_list_8='Ent 8'
+header_list_9='Ent 9'
+header_list_10='Ent 10'
+header_list_action='Action'
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' élément(s) trouvé(s)'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_crud_edit = "Modifier l'item"
+Title_crud_new = "Création d'un item"
+
+Bt_cancel='Annuler'
+Bt_reset='RAZ'
+Bt_create='Créer'
+Bt_update='Modifier'
+Bt_new='Nouveau'
+Bt_close='Fermer'
+Bt_return='Retour'
+Bt_ok='Ok'
+Error_page='Page non trouvée.'
+
+# status
+Lbl_status_m2='Actif'
+Lbl_status_m1='Inactif'
+Lbl_status_0='Inactif'
+Lbl_status_1='Actif'
+
+# Delete confirmation
+Title_delete="Suppression de l'item"
+Lbl_delete="Voulez-vous supprimer cet item ?"
+
+# Tool confirmation
+Title_tool="Traitement de l'item"
+Lbl_tool="Voulez-vous traiter cet item ?"
+
+# Contents
+Txt_Content_read_more="Lire la suite"
+Txt_Content_edit="Editer"
+Txt_Content_delete="Supprimer"
+Txt_Content_create="Créer"
+Txt_Content_not_found="Le contenu demandé a été supprimé !"
+
+# Forums
+Txt_forum_subject=Sujet
+Txt_forum_date=Date
+Txt_forum_nb=Nombre
+Txt_forum_image=Vignette
+Txt_forum_name=Nom
+Txt_forum_label=Libellé
+Txt_forum_author=Auteur
+Txt_forum_date_creation=Date
+Txt_forum_nbtopic=Discussions
+Txt_forum_nbpost=Réponses
+Txt_forum_read_more="Lire la suite"
+Txt_forum_edit="Editer"
+Txt_forum_delete="Supprimer"
+Txt_forum_enable="Activer"
+Txt_forum_disable="Désactiver"
+Txt_forum_create='Créer'
+Txt_forum_not_found='Le contenu demandé a été supprimé !'
+Txt_forum_subject_create='Ajouter un sujet'
+Txt_forum_topic_create='Créer une discussion'
+Txt_forum_post_create='Répondre'
+Txt_forum_post_read='Message lu'
+Txt_forum_post_noread='Message non lu'
+
+# Mediamanager
+Title_mediamanager_box=Média manager
+Lbl_mediamanager_path=Répertoire
+Lbl_mediamanager_filename =Fichier
+Lbl_mediamanager_parent=Répertoire parent
+Lbl_mediamanager_reset=Reset image
+Lbl_mediamanager_upload=Uploader une image
+Lbl_mediamanager_newdir=Nouveau répertoire
+Lbl_mediamanager_rename=Renommer une image
+Lbl_mediamanager_select=Sélectionner l'image courante
+Lbl_mediamanager_close=Fermer le média manager
+Txt_media_newdir=Nouveau dossier
+Txt_media_upload=Upload
+Txt_media_rename=Renommer
+Txt_media_close=Fermer
+Txt_media_select=Sélectionner
+
+Title_medianewdir_box=Créer un répertoire
+Lbl_medianewdir_name=Nom
+Txt_medianewdir_close=Fermer
+Txt_medianewdir_upload=Créer
+
+Title_mediaupload_box=Uploader un fichier
+Lbl_mediaupload_name=Fichier
+Txt_mediaupload_close=Fermer
+Txt_mediaupload_upload=Envoyer
+
+Title_mediarename_box=Renommer le fichier sélectionné
+Lbl_mediarename_name=Nouveau nom
+Txt_mediarename_close=Fermer
+Txt_mediarename_upload=Renommer
+
+# social
+Txt_facebook_name='Facebook'
+Txt_twitter_name='Twitter'
+Txt_google_name='Google+'
+Txt_printerest_name='Printerest'
+Txt_linkedin_name='Linkedin'
+Txt_youtube_name='Youtube'
+Txt_feedburner_name='Feedburner'
+
+Txt_facebook_share='Partager sur Facebook'
+Txt_twitter_share='Partager sur Twitter'
+Txt_google_share='Partager sur Google+'
+Txt_printerest_share='Partager sur Printerest'
+Txt_linkedin_share='Partager sur Linkedin'
+Txt_youtube_share='Partager sur Youtube'
+Txt_feedburner_share='Partager sur Feedburner'
+
+Txt_facebook_follow='Suiver nous sur Facebook'
+Txt_twitter_follow='Suiver nous sur Twitter'
+Txt_google_follow='Suiver nous sur Google+'
+Txt_printerest_follow='Suiver nous sur Printerest'
+Txt_linkedin_follow='Suiver nous sur Linkedin'
+Txt_youtube_follow='Suiver nous sur Youtube'
+Txt_feedburner_follow='Suiver nous sur Feedburner'
+
+#Scripts
+Txt_script_app='Application'
+Txt_script_code_app='Code application'
+Txt_script_name='Script'
+Txt_script_trait='Traitement script'
+Txt_script_not_found='Script non trouve'
+Txt_script_begin='Debut Traitement'
+Txt_script_end='Fin Traitement'
+Txt_script_duration='Duree du script'
+
+#Mail from
+Mail_from=webmaster@datasort.fr
+Mail_from_name=Contact de Datasort
+
+# Contact form
+Lbl_contact_name='Nom : '
+Lbl_contact_email='Email : '
+Lbl_contact_phone='Téléphone : '
+Lbl_contact_message='Message : '
+
+Txt_contact_error="Une erreur s'est produite lors de l'enregistrement de votre message"
+Txt_contact_ok="Votre message a bien été envoyé"
+Bt_contact_valider="Valider"
+
+Txt_control_name='Vous devez saisir un nom'
+Txt_control_phone='Vous devez saisir un N° de téléphone'
+Txt_control_message='Votre message ne doit pas être vide'
+
+Title_contact_validation="Message envoyé"
+Msg_contact_validation="
+<p>Merci de nous avoir contacté.</p>
+<p>Nous vous ferons un retour le plus vite possible afin de répondre à votre question.</p>
+"
+
+# Mail Contact
+Mail_contact_subject="Demande de contact"
+Mail_contact_txt="
+Une demande de contact a été faite sur le site\r\n
+Nom : [name]\r\n
+Email : [email]\r\n
+Téléphone : [phone]\r\n
+Message (ci-dessous) : \r\n
+[message]
+"
+
+Mail_contact_html="
+<p>Une demande de contact a été faite sur le site
+</p>
+"
+
+# Login form
+Lbl_login_login=Login
+Lbl_login_Password=Password
+Txt_login_login_placeholder=Utilisateur
+Txt_login_password_placeholder=Mot de passe
+
+#Login control
+Title_user_password_lost="Vous avez perdu votre mot de passe"
+Title_user_validation="Vous devez valider votre inscription"
+
+Txt_control_login='Vous devez saisir un identifiant'
+Txt_control_email='Vous devez saisir une adresse mail'
+Txt_control_pseudo='Vous devez saisir un pseudo'
+Txt_control_password='Vous devez saisir un mot de passe (8 caractères minimum)'
+Txt_control_password_confirm='Votre mot de passe ne correspond pas'
+Txt_connect_error="Erreur de login ou de mot de passe"
+Txt_connect_ok=L'utilisateur est connecté
+Txt_inscription_error="Une erreur s'est produite lors de l'enregistrement"
+Txt_inscription_duplicate='Cette adresse mail est déjà enregistrée'
+
+Msg_user_validation="
+		<p>Votre Email <span class='email'>xxxxxx@xxxx.xx</span> a bien été enregistré et vous avez reçu un Email de validation.
+		</p>
+		<p>Cliquez sur le lien de ce mail pour valider votre inscription. Ce lien n'est valable que 30 minutes.
+		</p>"
+Msg_user_validation_connexion="
+		<p>Votre Email <span class='email'>xxxxxx@xxxx.xx</span> a bien été enregistré mais n'a pas été validé.
+		</p>
+		<p>Vous pouvez renvoyer le mail de validation ci-dessous. Le lien de ce mail n'est valable que 30 minutes.
+		</p>"
+Msg_user_validation_resend="L'email de validation a été renvoyé."
+
+#Validation Mail
+Mail_validation_subject=Validation de votre inscription
+Mail_validation_txt="Cliquer sur le lien pour valider votre inscription : \r\n
+[link_validation] \r\n
+Cordialement. \r\n"
+
+Mail_validation_html_1="
+	<h1>Validation de votre inscription</h1>
+	<div class='content_1'>
+		<p>Chère Madame, Cher Monsieur,</p>
+		<div class='content_2'>
+			<p>Nous avons le plaisir de vous confirmer votre inscription.</p>
+			<p>Pour pouvoir vous connecter valider vor Mail en cliquant sur le bouton ci-dessous :</p>
+		</div>
+	</div>
+"
+Mail_validation_bt="Validez votre inscription"
+Mail_validation_html_2="
+	<div class='content_1'>
+		<div class='content_2'>
+			<p>Bien cordialement</p>
+		</div>
+	</div>
+"
+
+#Validation confirmation page
+Title_validation="Validation de votre inscription"
+Msg_validation_ok="Votre inscription est validée."
+Msg_validation_ko="Une erreur est survenue lors de la validation. Le lien de validation qui vous a été envoyé n'est valable que pendant 30 minutes."
+
+#Password Mail
+Mail_password_subject=Changement de mot de passe
+Mail_password_txt="Cliquer sur le lien pour changer votre mot de passe : \r\n
+[link_password] \r\n
+Cordialement. \r\n"
+Mail_password_html_1="
+	<h1>Mot de passe oublié?</h1>
+	<div class='content_1'>
+		<p>Chère Madame, Cher Monsieur,</p>
+		<div class='content_2'>
+			<p>Vous pouvez changer votre mot de passe en cliquant sur le bouton ci-dessous :</p>
+		</div>
+	</div>
+"
+Mail_password_bt="Réinitialiser votre mot de passe"
+Mail_password_html_2="
+	<div class='content_1'>
+		<div class='content_2'>
+			<p>Cordialement</p>
+		</div>
+	</div>
+"
+
+#Password page
+Title_password="Changement de mot de passe"
+Msg_password_ko="Une erreur est survenue lors du traitement. Le lien qui vous a été envoyé n'est plus valable. Il a déjà été utilisé ou il n'est plus valide."
+Txt_password_error="Une erreur s'est produite lors de l'enregistrement"
+Bt_password_valider="Valider"
+Msg_password_validation="
+		<p>Votre mot de passe a bien été modifié.
+		</p>
+		"
+
+#Content Objet
+[admcontent]
+Title_delete=Suppression du contenu
+Lbl_delete=Voulez-vous supprimer ce contenu ?
+Title_crud_edit = Contenu :
+Title_crud_new = Création contenu
+Title_admcontent=Contenus
+Lbl_admcontent_code=Code :
+Lbl_admcontent_status_id=Statut :
+Lbl_admcontent_status_id_1=Inactif
+Lbl_admcontent_status_id_2=Actif
+Lbl_admcontent_application_id=Application :
+Lbl_admcontent_title=Titre :
+Lbl_admcontent_title_page=Titre de la page :
+Lbl_admcontent_param1=Paramétre 1 :
+Lbl_admcontent_param2=Paramétre 2 :
+Lbl_admcontent_admin_status=Statut :
+Lbl_admcontent_image=Image :
+Lbl_admcontent_intro=Intro :
+Lbl_admcontent_image1=Image1 :
+Lbl_admcontent_image2=Image2 :
+Lbl_admcontent_image3=Image3 :
+Lbl_admcontent_image4=Image4 :
+Lbl_admcontent_image5=Image5 :
+Lbl_admcontent_image6=Image6 :
+Lbl_admcontent_block1=Bloc1 :
+Lbl_admcontent_block2=Bloc2 :
+Lbl_admcontent_block3=Bloc3 :
+Lbl_admcontent_block4=Bloc4 :
+Lbl_admcontent_block5=Bloc5 :
+Lbl_admcontent_block6=Bloc6 :
+Lbl_admcontent_content=Contenu :
+Lbl_admcontent_category_id=Catégorie :
+Lbl_admcontent_author_id=Auteur :
+Lbl_admcontent_alt=Alt :
+Lbl_admcontent_alias=Alias :
+Lbl_admcontent_style=Style :
+Lbl_admcontent_class=Class :
+Lbl_admcontent_icon=Icône :
+Lbl_admcontent_header=Entête :
+Lbl_admcontent_path=Path :
+Lbl_admcontent_content_page=Page contenu :
+Lbl_admcontent_description=Description :
+Lbl_admcontent_keywords=Mots clefs :
+Lbl_admcontent_date_publication=Publication :
+Lbl_admcontent_tab1=Principal
+Lbl_admcontent_tab2=Contenu
+Lbl_admcontent_tab3=Divers
+Lbl_admcontent_tab4=Présentation
+Lbl_admcontent_tab5=Blocs
+Lbl_admcontent_tab6=Images
+
+[formfield_text]
+# Image
+Lbl_image_alt = Alt
+Lbl_image_title = Titre
+
+# forum subject Object
+[admsubject]
+Title_list="Sujets du forum"
+Lbl_list_orderby_0='Séquence'
+Lbl_list_orderby_1='Nom'
+Lbl_list_orderby_2='Identifiant'
+header_list_1='Catégorie';
+header_list_2='Nom';
+header_list_3='Statut';
+header_list_4='Libellé';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' sujets trouvés'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression du sujet"
+Lbl_delete="Voulez-vous supprimer ce sujet du forum ?"
+Title_crud_edit = "Sujet : "
+Title_crud_new = "Création sujet"
+Title_forum_subject="Sujets du forum"
+Lbl_admsubject_application="Application : "
+Lbl_admsubject_name="Nom : "
+Lbl_admsubject_category_id="Catégorie : "
+Lbl_admsubject_status_id="Statut : "
+Lbl_admsubject_label="Libellé : "
+Lbl_admsubject_tab1="Principal"
+Lbl_admsubject_tab2="Contenu"
+Lbl_admsubject_tab3="SEO"
+Lbl_admsubject_tab4="Divers"
+Lbl_admsubject_vignette="Vignette : "
+Lbl_admsubject_image="Image : "
+Lbl_admsubject_content="Contenu : "
+Lbl_admsubject_alias="Alias : "
+Lbl_admsubject_description="Description : "
+Lbl_admsubject_keywords="Mots clefs : "
+Lbl_admsubject_alt="Texte lien : "
+Lbl_admsubject_icon="Icône : "
+Lbl_admsubject_class="Class : "
+
+# forum topic Object
+[admtopic]
+Title_list="Fils de discussion"
+Lbl_list_orderby_0='Date'
+Lbl_list_orderby_1='Libellé'
+Lbl_list_orderby_2='Identifiant'
+header_list_1='Sujet';
+header_list_2='Date';
+header_list_3='Auteur';
+header_list_4='Statut';
+header_list_5='Libellé';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' fils de discussion trouvés'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression du fil de discussion"
+Lbl_delete="Voulez-vous supprimer ce fil de discussion ?"
+Title_crud_edit = "Fil de discussion : "
+Title_crud_new = "Création fil de discussion"
+Title_admtopic="Fils de discussion"
+Lbl_admtopic_tab1="Contenu"
+Lbl_admtopic_tab2="SEO"
+Lbl_admtopic_subject_id="Sujet : "
+Lbl_admtopic_reference="Référence auteur : "
+Lbl_admtopic_author="Auteur : "
+Lbl_admtopic_status_id="Statut : "
+Lbl_admtopic_ref_moderator="Référence modérateur : "
+Lbl_admtopic_moderator="Modérateur : "
+Lbl_admtopic_name="Nom : "
+Lbl_admtopic_label="Libellé : "
+Lbl_admtopic_description="Description : "
+Lbl_admtopic_alias="Alias : "
+Lbl_admtopic_alt="Texte lien : "
+
+# forum post Object
+[admpost]
+Title_list="Messages"
+Lbl_list_orderby_0='Date'
+Lbl_list_orderby_1='Libellé'
+Lbl_list_orderby_2='Identifiant'
+header_list_1='Discussion';
+header_list_2='Date';
+header_list_3='Auteur';
+header_list_4='Statut';
+header_list_5='Libellé';
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' messages trouvés'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression du message"
+Lbl_delete="Voulez-vous supprimer ce message ?"
+Title_crud_edit = "Message : "
+Title_crud_new = "Création message"
+Title_admpost="Messages"
+Lbl_admpost_topic_id="Message : "
+Lbl_admpost_reference="Référence auteur : "
+Lbl_admpost_author="Auteur : "
+Lbl_admpost_status_id="Statut : "
+Lbl_admpost_ref_moderator="Référence modérateur : "
+Lbl_admpost_moderator="Modérateur : "
+Lbl_admpost_name="Nom : "
+Lbl_admpost_description="Description : "
+
+# user object
+[user]
+Title_list='Utilisateurs'
+header_list_1='Id';
+header_list_2='Login';
+header_list_3='Statut';
+header_list_4='Nom';
+header_list_5='Prénom';
+header_list_6='Email';
+filter_list_status_id='Statut : '
+txt_list_caption_count_begin=''
+txt_list_caption_count_end=' utilisateurs trouvés'
+txt_list_caption_search_begin=" pour le filtre '"
+txt_list_caption_search_end="'"
+Title_delete="Suppression de l'utilisateur"
+Lbl_delete="Voulez-vous supprimer cet utilisateur ?"
+Title_crud_edit = ""
+Title_crud_new = "Création utilisateur"
+Title_user='Utilisateurs'
+Lbl_user_lastname='Nom : '
+Lbl_user_firstname='Prénom : '
+Lbl_user_email='Email : '
+Lbl_user_login='Login : '
+Lbl_user_password='Mot de passe : '
+Lbl_user_surname='Pseudo : '
+Lbl_user_source_id='Origine : '
+Txt_user_bt_add_pwd='Pass'
+Txt_user_bt_pwd='Mot de passe'
+Lbl_user_status_id='Statut : '
+Lbl_user_status_id_1='Inactif'
+Lbl_user_status_id_2='Actif'
+Lbl_user_partner_list='Partenaire : '
+Lbl_user_group_list='Groupes : '
+Lbl_user_password_1='Mot de passe : '
+Lbl_user_password_2='Confirmez : '
+
+[user_pwd]
+Title_user_pwd='Utilisateur'
+Title_crud_edit = 'Changer le mot de pase de '
+Title_crud_new = 'Initialiser le mot de pase '
+Lbl_user_pwd_password_1='Mot de passe : '
+Lbl_user_pwd_password_2='Confirmez : '

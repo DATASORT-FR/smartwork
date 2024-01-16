@@ -1,0 +1,156 @@
+/**
+* Login module : css
+*
+* @package    module_login
+* @subpackage controller
+* @version    1.1
+* @date       11 November 2021
+* @author     Alain VANDEPUTTE
+* @copyright  datasort.fr
+*/
+
+.extra {
+	display: none;
+	position: fixed;
+	top: 180px;
+	left:0;
+	width:100%;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+.extra .box {
+	position: relative;
+	border-radius: 0.2rem;
+	border: 0.1rem solid #7F7F7F;
+	overflow: hidden;
+	max-width: 52rem;
+	margin: auto;
+	background-color : #fff;
+	padding: 1rem;
+	padding-top: 0.5rem;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(10px);
+	opacity:0.95;
+}
+
+.extra .box h1 {
+	border: none;
+	padding-bottom: 0.5rem;
+	box-shadow: 0 4px 4px -6px #333;
+}
+		
+.extra .box .intro {
+	padding-top: 0;
+	margin-top:0;
+	border: none;
+}
+	
+.extra .box .content {
+	padding-top: 1rem;
+}
+	
+.extra .box .main-content {
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding-bottom: 0.5rem;
+	padding-right:0.5rem;
+}
+		
+.extra .box .bt-exit {
+	position: absolute;
+	font-size: 2rem;
+	top: 0rem;
+	right: 0rem;
+}
+
+.extra .box .bt-exit .fa {
+	color: #1eb1df;
+}
+		
+.extra .box .button {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 2rem;
+}
+
+/*    Tab   */
+.tab-link {
+	display: flex;
+	justify-content: normal;
+}
+.tab-link .undertitle {
+	display: block;
+}
+.tab-link h2 {
+	margin-bottom:0;
+	padding-bottom:0;
+}
+.tab-link  .down h2 {
+	color: #9dabaf;
+}
+.tab-link [class^=link] {
+	padding-right: 4rem;
+	cursor: pointer;
+}
+
+
+.tab-content {
+	padding-top: 1rem;
+}
+	
+.tab-content .up {
+		display: block;
+}
+
+.tab-content .down {
+		display: none;
+}
+
+@media (max-width: 767px) {
+	.tab-content {
+		padding-top: 0.5rem;
+	}
+	.tab-link .undertitle {
+		display: none;
+	}
+	.tab-link [class^=link] {
+		padding-right: 2rem;
+	}
+	.tab-link h2 {
+		font-size: 1.5rem;
+	}
+}
+
+@media (max-width: 374px) {
+	.tab-link [class^=link] {
+		padding-right: 1rem;
+	}
+
+	.tab-link h2 {
+		font-size: 1.3rem;
+	}
+}
+
+/*     Blocks */
+.login-block, 
+.changepassword-block {
+    max-width: 43rem;
+    margin: auto;
+}
+
+.login-block,
+.changepassword-block {
+  max-width: 43rem;
+  margin: auto;
+}
+.login-block .message,
+.changepassword-block .message {
+  color: red;
+  font-weight: 600;
+}
+.login-block .validation .email,
+.changepassword-block .validation .email{
+  font-weight: 600;
+}

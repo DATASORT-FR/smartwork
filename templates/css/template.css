@@ -1,0 +1,405 @@
+/***** Main *****/
+body {
+	background: url("../../images/administrator/background.png") no-repeat center fixed;
+	background-size: cover;
+}
+
+.nav-link {
+    display: inline-block;
+}
+
+h1.title {
+	font-size: 1.5rem;
+	font-weight: 600;
+	line-height: 1.1;
+}
+
+.display-none {
+	display : none !important;
+}
+
+.form-control:disabled, 
+.form-control[readonly] {
+/*
+	background-color: #fff;
+*/
+	font-weight: 500;
+}
+
+button.btn {
+	cursor: pointer;
+}
+	
+.fa {
+	margin-right: 10px;
+}
+
+.fa.fa-circle-o-notch {
+	color: #0275d8;	
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.link-a {
+    cursor: pointer;
+}
+
+.div-label {
+	display:flex;
+    align-items: center;	
+    justify-content: right;
+}
+
+/* page header */
+.page-header {
+	color: #ffffff;
+	background-color: #0275d8;
+	overflow: hidden;
+	text-align: center;
+	margin-bottom: 8px;
+	padding: 5px;
+}
+
+.page-header h1 {
+	margin-bottom: 0px;
+}
+/***** Main end *****/
+
+/***** zoning *****/
+/* Main blocks */
+.block {
+	background-color: #fbfbfb;
+	border: solid 1px;
+    border-color: #ffffff;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.067);
+}
+
+.min-size {
+	width: 400px;
+}
+
+/*
+.hidden {
+	display: none;
+}
+*/
+
+/* header zone */
+.header-zone {
+	display: block;
+	background-color: transparent;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+/* nav zone */
+.navigation-zone {
+/*
+	display: none;
+	background-color: #0275d8;
+*/
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.navbar-inverse .navbar-nav .nav-link {
+	color: #fff;
+}
+
+.navbar button,
+.navbar .nav-brand,
+.navbar .nav-link,
+.navbar .nav-link:focus,
+.navbar .nav-link:hover {
+	color: rgba(255, 255, 255, 1);
+}
+
+/* main zone */
+.main-zone {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+/* work zone */
+.work-zone {
+	width: 100%;
+	float: left;
+	min-height: 83vh;
+}
+
+/* Apps Block */
+.block-apps.block {
+	float: left;
+	background-color: #80ADE7;
+	color: #f3f3f3;
+	border: solid 1px;
+    border-color: #ffffff;
+    box-shadow: 0px 2px 4px 1px rgba(0,0,0,0.2);
+	width: 230px;
+	height : 300px;
+	margin: 10px;
+	display: block;
+	cursor: pointer;
+}
+
+.block-apps.block:hover {
+    box-shadow: 0px 4px 8px 2px rgba(0,0,0,0.2);
+}
+
+.block-apps .page-header {
+	font-size: 150%;	
+	font-weight: bold;	
+	text-overflow: ellipsis;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+	white-space: nowrap;
+	border: none;
+	border-bottom: solid 1px;
+    border-color: rgba(255,255,255,0.7);	
+	height: 50px;
+	padding: 0px;
+	background-color: inherit;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.block-apps .card-title {
+	text-align: center;
+}
+
+.block-apps .page-body {
+	min-height: 160px;
+	padding-top: 0;	
+}
+
+.block-apps .page-body .image {
+	text-align: center;
+	padding-top: 0;
+}
+
+.block-apps .page-body .image  img{
+	height: 80px;
+	width: 80px;
+}
+
+.block-apps .page-body .description {
+	height: 105px;
+	overflow: hidden;
+	text-align: justify;
+}
+
+/* Login Block */
+.block-logged.block,
+.block-login.block {
+	background-color: transparent;
+	color: #f3f3f3;
+	padding: 5px;
+}
+/***** End zoning *****/
+
+/* Table responsive */
+div.table-responsive>table.table {
+	margin-bottom: 0;	
+}
+
+div.table-responsive {
+	margin-bottom: 1rem;
+}
+
+table.table-responsive {
+	margin-bottom: 0;	
+}
+
+/* End Table responsive */
+
+/********* Tabs ********/
+.tab-content {
+	padding-top : 16px;
+}
+/* End Tabs            */
+
+/******* Groups *******/
+.group-content {
+	border: solid 1px;
+	border-color: lightgrey;
+}
+
+.group-content .group-label {
+	font-weight: 500;
+	margin-left: 1rem;
+}
+
+/***** Message box *****/
+.message-txt {
+	min-height: 18px;
+	width: 100%;
+	color: blue;
+	font-weight: bold;
+	background-color: white;
+	padding-left: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+	border-radius: 3px;
+    box-shadow: 0px 2px 4px 1px rgba(0,0,0,0.2);
+}
+
+.message-ok {
+	color: green;
+}
+
+.message-ko {
+	color: red;
+}
+/***** Message box End *****/
+
+/***** Confirm box *****/
+.box-confirm {
+	width: 80vh;
+}
+/***** Confirm box End *****/
+
+/***** buttons *****/
+button>span.fa {
+/*
+	margin-right: 2px;
+*/
+}
+
+.content_btn .bt-left {
+	float: left !important;
+}
+/***** buttons end *****/
+
+/*********************************************/
+/* Hierarchy in list */
+.space-hierarchy {
+  padding-left: 15px;
+  padding-right: 5px;	
+}
+
+/* date form field */
+.datepicker thead tr:first-child th:hover {
+	color: #ffffff;
+	background-color: #286090;
+}
+
+.bootstrap-tagsinput {
+	display: block;
+	width: 100%;
+}
+
+.bootstrap-tagsinput .tag {
+	padding: 6px;
+	margin-bottom: 5px;
+	font-size: 100%;
+    background-color: #025aa5;	
+}
+
+
+.bootstrap-tagsinput .tag [data-role="remove"]::after {
+	content: "\f00d";
+	font-weight: bold;
+}
+
+.bootstrap-tagsinput>.tag>span {
+	margin-left: 6px;
+	cursor: pointer ;
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.form-group {
+	margin-bottom: 0.5rem;
+	display: flex;
+}
+
+.form-inline .form-group {
+	margin-bottom: 0;
+	display: inline-block;
+}
+
+.form-inline .form-group .form-control {
+	width: auto;
+	display: inline-block;
+}
+
+.align-self-end {
+	-ms-flex-item-align: end !important;
+	align-self: flex-end !important;
+}
+
+#confirm-box {
+	min-width:30rem;
+	max-width:40rem;
+}
+
+/*******************/
+/*      Card       */
+/*******************/
+.card {
+	margin-bottom: 0.75rem;
+	padding: 0;
+}
+
+.card-header {
+    padding: .5rem 1rem;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.card-title {
+	margin-top: 0.5rem;
+    margin-bottom: .5rem;
+}
+
+/* Card  + Article */
+.card-body .intro_img {
+    margin-right: -1rem;
+    margin-left: -1rem;
+	margin-top: -1rem;
+    width: auto;
+}
+
+.card-body h2 {
+	padding-bottom: 1rem;
+}
+
+.card-body .article_intro .container_img>div {
+    display: block;
+}
+
+/***** Block *****/
+.block {
+    max-width: 64rem;
+    margin: auto;
+}
+
+.block .message {
+  color: red;
+  font-weight: 600;
+}
+
+.block .msg-ok {
+  color: green;
+  font-weight: 600;
+  justify-content: center;  
+}
+
+.block .validation .email {
+  font-weight: 600;
+}
+
+/**** Article ****/
+article figure img {
+    display: block;
+    margin: auto;
+}

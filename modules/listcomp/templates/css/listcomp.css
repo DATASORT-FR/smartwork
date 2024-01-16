@@ -1,0 +1,172 @@
+/**
+* Listcomp module : css
+*
+* @package    module_listcomp
+* @subpackage controller
+* @version    1.1
+* @date       30 Août 2016
+* @author     Alain VANDEPUTTE
+* @copyright  datasort.fr
+*/
+
+.list-block {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.list-block-header,
+.list-block-content,
+.list-block-footer {
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+	margin-bottom: 0.3rem;
+}
+
+.btn-list-action.input-group-btn {
+	font-size: inherit;
+	min-width: 6rem;
+}
+
+.btn-list-action .dropdown-toggle::after {
+	margin: 0;
+	content: none;
+	border: none;
+}
+
+/* List Param */
+.param-container .bt_filter-toggle .fa {
+	margin-left: 10px;
+	margin-right: 0px;
+}
+
+.list-block-header .listbutton {
+	float: right;
+}
+
+.list-block-header .search .fa {
+	margin-right: 0;
+}
+
+.filter-container {
+	position: relative;
+	margin: 1rem;
+	margin-bottom: 0.5rem;
+	padding-top: 1rem;
+	border: 0.1rem solid rgba(0,0,0,.15);
+	border-radius: .25rem;	
+}
+
+.filter-container .group-label {
+	position: absolute;
+	left: 0;
+	top: -14px;
+	background-color: #fff;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: 15px;
+}
+
+/* List global */
+.list-container {
+/*	overflow-x: auto;
+*/
+	overflow-x: none;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+/* header description in listcomp */
+.list-container .lc_list-header {
+	text-align:left;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.list-container .lc_list-header > h4{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/* header line in list */
+.list-container th>div {
+	float: right;
+}
+
+/* table in list */
+.list-container table.table-responsive {
+	display: table;	
+}
+
+.list-container table caption {
+	caption-side: top;
+}
+
+.list-container table.table-bordered td,
+.list-container table.table-bordered thead th {
+	border: 1px solid #000;
+}
+
+.list-container table.table-bordered thead th {
+	color: #ffffff;
+	background-color: #0275d8;
+}
+
+/* List Button */
+.list-container .btn-list-action {
+	text-align: center;
+}
+
+.list-container .btn-list {
+	display : block;
+	text-align: center;
+}
+
+/* line in listcomp */
+.list-container .lc_line span.fa {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+/* line hover in listcomp */
+.list-container .lc_line-hover ,
+.list-container .lc_line-hover a {
+	color: #ffffff;
+	background-color: #007EBE !important;
+}
+
+/* List Pagination */
+.pagination-container {
+	text-align: center;
+}
+
+.pagination-container ul.pagination {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	justify-content: center;
+}
+
+.pagination-container ul.pagination  > li > a:hover {
+	color: #ffffff;
+	background-color: #337ab7;
+	background-image: #0088cc;
+}
+
+.pagination-container ul.pagination  > li > a.active,
+.pagination-container ul.pagination  > li:hover> a.active {
+	color: #ffffff;
+	background-color: #337ab7;
+}
+
+/* Page size selector */
+.pagination-container div.size-selector {
+	float: right;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.pagination-container .size-selector select {
+	display: inline;
+	width: auto;
+	min-width: 1rem;
+}

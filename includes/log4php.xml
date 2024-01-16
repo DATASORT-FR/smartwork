@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<log4php:configuration xmlns:log4php="http://logging.apache.org/log4php/">
+    <appender name="default" class="LoggerAppenderFile">
+        <param name="file" value="./logs/default.log" />
+        <layout class="LoggerLayoutPattern">
+            <param name="ConversionPattern" value="%d{Y-m-d H:i:s} [%p] %c: %m (at %F line %L)%n" />
+        </layout>
+    </appender>
+    <appender name="sys" class="LoggerAppenderDailyFile">
+        <param name="file" value="./logs/sys_%s.log" />
+        <param name="datePattern" value="Ymd" />
+        <layout class="LoggerLayoutPattern">
+            <param name="ConversionPattern" value="%d{Y-m-d H:i:s}|[%p]|%m%n" />
+        </layout>
+        <filter class="LoggerFilterLevelRange">
+            <param name="LevelMin" value="trace" />
+            <param name="LevelMax" value="fatal" />
+        </filter>
+        <filter class="LoggerFilterDenyAll" />
+    </appender>
+    <appender name="func" class="LoggerAppenderDailyFile">
+        <param name="file" value="./logs/func_%s.log" />
+        <param name="datePattern" value="Ymd" />
+        <layout class="LoggerLayoutPattern">
+			<param name="ConversionPattern" value="%d{Y-m-d H:i:s}|[%p]|%m%n" />
+        </layout>
+        <filter class="LoggerFilterLevelRange">
+            <param name="LevelMin" value="trace" />
+            <param name="LevelMax" value="fatal" />
+        </filter>
+        <filter class="LoggerFilterDenyAll" />
+    </appender>
+    <appender name="trace" class="LoggerAppenderDailyFile">
+        <param name="file" value="./logs/trace_%s.log" />
+        <param name="datePattern" value="Ymd" />
+        <layout class="LoggerLayoutPattern">
+			<param name="ConversionPattern" value="%d{Y-m-d H:i:s}|[%p]|%m%n" />
+        </layout>
+        <filter class="LoggerFilterLevelRange">
+            <param name="LevelMin" value="trace" />
+            <param name="LevelMax" value="fatal" />
+        </filter>
+        <filter class="LoggerFilterDenyAll" />
+    </appender>
+    <appender name="emailNotice" class="LoggerAppenderMail">
+        <param name="from" value="webmaster@datasort.fr" />
+        <param name="to" value="alain.vandeputte@datasort.fr" />
+        <param name="subject" value="Error" />
+        <layout class="LoggerLayoutPattern">
+            <param name="ConversionPattern" value="%d{Y-m-d H:i:s} [%p] %c: %m (at %F line %L)%n" />
+        </layout>
+        <filter class="LoggerFilterLevelRange">
+            <param name="LevelMin" value="error" />
+            <param name="LevelMax" value="fatal" />
+        </filter>
+        <filter class="LoggerFilterDenyAll" />
+    </appender>
+    <root>
+        <level value="error" />
+			<appender_ref ref="default" />
+    </root>
+    <logger name="trace" additivity="false">
+        <level value="ALL" />
+        <appender_ref ref="trace" />
+    </logger>
+    <logger name="func" additivity="false">
+        <level value="ALL" />
+        <appender_ref ref="func" />
+    </logger>
+    <logger name="Main" additivity="false">
+        <level value="ALL" />
+        <appender_ref ref="sys" />
+    </logger>
+    <logger name="BUS_object" additivity="false">
+        <level value="error" />
+        <appender_ref ref="sys" />
+    </logger>
+    <logger name="wcrud" additivity="false">
+        <level value="error" />
+        <appender_ref ref="sys" />
+    </logger>	
+    <logger name="wlistcomp" additivity="false">
+        <level value="error" />
+        <appender_ref ref="sys" />
+    </logger>
+    <logger name="wmenu" additivity="false">
+        <level value="error" />
+        <appender_ref ref="sys" />
+    </logger>
+    <logger name="wlogin" additivity="false">
+        <level value="error" />
+        <appender_ref ref="sys" />
+    </logger>
+    <logger name="Wmedia" additivity="false">
+        <level value="error" />
+        <appender_ref ref="sys" />
+    </logger>
+    <logger name="object_connect" additivity="false">
+        <level value="error" />
+        <appender_ref ref="sys" />
+    </logger>
+    <logger name="plg_FormField" additivity="false">
+        <level value="error" />
+        <appender_ref ref="sys" />
+    </logger>
+    <logger name="PDO_extend" additivity="false">
+        <level value="error" />
+        <appender_ref ref="sys" />
+    </logger>
+    <logger name="Smart_select" additivity="false">
+        <level value="debug" />
+        <appender_ref ref="sys" />
+    </logger>
+    <logger name="Smart_record" additivity="false">
+        <level value="debug" />
+        <appender_ref ref="sys" />
+    </logger>
+    <logger name="mailSend" additivity="false">
+        <level value="debug" />
+        <appender_ref ref="sys" />
+    </logger>	
+</log4php:configuration>

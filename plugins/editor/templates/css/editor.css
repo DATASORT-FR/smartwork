@@ -1,0 +1,10 @@
+.ck-editor {
+	min-width: 650px;
+}
+
+.ck-editor__editable,
+.ck-source-editing-area {
+	overflow-y: auto;
+	max-height: 20rem;
+	min-height: 25rem;
+}

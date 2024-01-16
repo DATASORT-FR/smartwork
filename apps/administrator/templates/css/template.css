@@ -1,0 +1,50 @@
+/* extra box */
+.btn.bt-minus {
+	display: none;
+}
+
+body {
+	overflow-y :visible;
+}
+
+.header-zone {
+	display: none;
+}
+
+.navigation-zone {
+	display: block;
+	background-color: #0275d8;
+}
+
+#topNav {
+	margin-bottom: 0;
+}
+
+.message-txt {
+	min-height: 0;
+}
+
+.nav-login {
+	padding-top: 0.3rem;
+	padding-right: 0.3rem;
+}
+
+.nav-login .block {
+	float:right;
+}
+
+/* main zone */
+.main-zone {
+	position: relative;
+	padding: 0;
+}
+
+.work-zone {
+	margin: 0;
+}
+
+/* block adm zone */
+.block-adm {
+	background-color: #fff;
+	min-height: 90vh;
+}

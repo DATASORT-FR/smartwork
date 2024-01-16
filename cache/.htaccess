@@ -1,0 +1,7 @@
+RemoveHandler cgi-script .php .phtml .php3 .pl .py .jsp .asp .sh .cgi
+RemoveType cgi-script .php .phtml .php3 .pl .py .jsp .asp .sh .cgi
+php_flag engine off
+Deny from all
+<FilesMatch "\.(css|js)$">
+Allow from all
+</FilesMatch>
